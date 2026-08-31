@@ -68,7 +68,7 @@ Now work through the tools interactively - never dump all the instructions at on
 
 **Google Workspace (Docs & Sheets):** explain what it unlocks (share research as Docs, read briefs people send, pull numbers from Sheets), then walk them through connecting it: claude.ai → Settings → Connectors → Google Drive, authorize, done - it works inside Claude Code automatically. Verify: list their recent Drive files and name one back to them.
 
-**Gemini API (video understanding):** setup steps are being finalized - if `SETUP.md` does not have them yet, say it is coming and move on gracefully.
+**The video tools (yt-dlp + ffmpeg + Gemini) - powers `/watch-video`:** explain what it unlocks (Claude actually watches ads: teardowns of competitor winners, studying their own ads for learnings). Install yt-dlp and ffmpeg for them (`brew install yt-dlp ffmpeg` on Mac, winget equivalents on Windows), have them grab a free Gemini API key at aistudio.google.com/apikey, store it as `GEMINI_API_KEY` in their shell environment. Verify: `yt-dlp --version` and `ffmpeg -version` both answer, and a tiny Gemini API call returns OK. If they skip the key, `/watch-video` still works minus the feel layer - say so and move on.
 
 **Optional upgrades (Meta Ads Manager, ad spy tools):** name them in one line each, say they can come later, do not set them up now.
 

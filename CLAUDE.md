@@ -49,6 +49,7 @@ The pattern also scales: if you ever add a whole new area of work to this worksp
 | `/desires` | Identify the brand's mass desires from the research and write the desire doc. |
 | `/growth-guide` | Finalize the brand's growth guide - the idea bank + concept pipeline that tracks every ad from idea to learning. |
 | `/video-copy` | Write a first-draft video ad script from your research and chosen claims. |
+| `/watch-video` | Claude actually watches a video (link or file): frames, transcript, pacing, feel. Quick answers, or full teardown docs saved to the brand. |
 | `/static-copy` | Write first-draft static ad copy from your research and chosen claims. |
 
 Every draft-writing skill reads the manifesto and the brand's research first, and hands you a draft to take out and assemble yourself. None of them ship a finished ad.

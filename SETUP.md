@@ -14,7 +14,11 @@ Do not overthink it. These are just ways to give your workspace more senses and 
 
 - **Web research - nothing to set up.** Claude Code searches the web and reads pages out of the box. That covers most of what market research needs: review pages, forums, articles, competitor sites.
 - **Google Workspace (Docs & Sheets)** - lets Claude read and write your Google Docs and Sheets: share a research doc or learnings summary with a coach or client as a Doc, read briefs people send you, pull numbers from a Sheet (like an Ads Manager export). Connect it in your Claude settings (claude.ai → Settings → Connectors → Google Drive) - it then works inside Claude Code automatically. One quirk to know: Claude can create Docs from plain text, but cannot edit or delete existing Drive files.
-- **Gemini API** - lets Claude watch and understand video. This powers two things: searching the footage in a brand's `content/` folder ("do I have a clip for this hook?"), and breaking down finished ads when you do learnings. *(Step-by-step instructions land here as we finalize them.)*
+- **The video tools (yt-dlp + ffmpeg + Gemini)** - together these power `/watch-video`: drop any ad or reel and Claude actually watches it - frames, transcript, pacing numbers, and how it feels. Used for tearing down competitor winners before imitating them, and for studying your own ads when pulling learnings.
+  1. Install the two free tools: on Mac, `brew install yt-dlp ffmpeg` (on Windows, `winget install yt-dlp.yt-dlp Gyan.FFmpeg`).
+  2. Get a free Gemini API key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey).
+  3. Store it in your shell environment as `GEMINI_API_KEY` (ask Claude to do this for you).
+  Costs cents per video; the free tier covers light use. Without the Gemini key, `/watch-video` still works - it just skips the "feel" layer.
 
 ## The scrapers (how research reaches the places search can't)
 
