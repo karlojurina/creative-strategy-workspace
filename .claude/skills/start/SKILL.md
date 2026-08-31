@@ -9,6 +9,21 @@ The first thing a new owner of this workspace runs. Four phases: learn who they 
 
 If this workspace was already onboarded (CLAUDE.md has a filled "Who runs this workspace" section), say so and offer the phases individually: redo the interview, set up or verify tools, or jump straight to `/new-brand`.
 
+## The opening move - set the scene
+
+Before any questions, one short message showing exactly what this onboarding is:
+
+```
+PHASE 1  The interview     ~15 min · 8 questions · talk, don't type
+PHASE 2  Write it in       the workspace learns who you are
+PHASE 3  Tools, verified   ~10 min · set up + TEST your research tools
+PHASE 4  Hand-off          your first brand
+```
+
+One line under it: they can stop anytime and type `start` later to pick up where they left off.
+
+**At every phase transition, show this same visual again** - ✓ on finished phases, `->` pointing at the one starting - plus one sentence on what happens next. Never start a new phase silently.
+
 ## Phase 1 - The interview
 
 Open with one line on why: the more Claude knows about them, the more every future session feels like working with someone who already knows them - that context lives in this workspace permanently. Recommend a speech-to-text tool (like Wisprflow) - talking through answers is much faster than typing them.
@@ -16,12 +31,13 @@ Open with one line on why: the more Claude knows about them, the more every futu
 Ask ONE question at a time. WAIT for every answer. Never answer for them. React to what they say like a person, not a form.
 
 1. What's your name, and where are you from?
-2. What's your experience with marketing and ads so far - complete beginner, run some ads, or been in it a while? (Whatever the answer, no judgment - the workspace meets you where you are.)
-3. Have you ever run Meta ads yourself, or watched someone run them? Do you know your way around Ads Manager?
-4. What are you here to do - make ads for brands on the Ad Bounty program, for your own brand, or for a client?
-5. What does winning look like for you in the next 90 days? (Honest, not impressive.)
-6. How do you like to work and learn - watch first then do, dive in and break things, step-by-step instructions?
-7. Anything else Claude should know about you or how to talk to you? (Tone, language, pet peeves, what motivates you.)
+2. How familiar are you with AI - ChatGPT, Claude, any of it? And is this your first time inside something like VS Code and Claude Code? **Calibrate everything from this answer onward**: a beginner gets every term explained before it is used and smaller steps; a power user gets less hand-holding and more speed. Apply it immediately, in this very conversation, so they feel the difference.
+3. What's your experience with marketing and ads so far - complete beginner, run some ads, or been in it a while? (Whatever the answer, no judgment - the workspace meets you where you are.)
+4. Have you ever run Meta ads yourself, or watched someone run them? Do you know your way around Ads Manager?
+5. What are you here to do - make ads for brands on the Ad Bounty program, for your own brand, or for a client?
+6. What does winning look like for you in the next 90 days? (Honest, not impressive.)
+7. How do you like to work and learn - watch first then do, dive in and break things, step-by-step instructions?
+8. Anything else Claude should know about you or how to talk to you? (Tone, language, pet peeves, what motivates you.)
 
 ## Phase 2 - Write it in
 
