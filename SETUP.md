@@ -19,7 +19,8 @@ Do not overthink it. These are just ways to give your workspace more senses and 
 
 Keep it simple to start. When you want more, you can bolt on:
 
-- **Apify (the scraper)** - the built-in web search cannot read X, TikTok, or Instagram comments. Apify can. Start on the free tier; going deeper is not expensive - if the research matters, pay to win.
+- **Scrapling (free scraper - the default)** - some of the best voice-of-customer sources block the built-in web tools (Reddit threads, many review sites). Scrapling is a free, open-source stealth scraper that gets through. Two commands, one time: `pip install "scrapling[fetchers]"` then `scrapling install` (downloads its browser - a few hundred MB). After that, Claude drives it directly whenever research hits a wall.
+- **Apify (paid scraper - where Scrapling can't reach)** - X, TikTok, and Instagram comment mining (those need logged-in access). Start on the free tier; going deeper is not expensive - if the research matters, pay to win.
 - **Meta Ads Manager** - pull your real ad performance data straight into the workspace.
 - **Ad spy tools** (Atria and others) - deeper competitor ad research.
 - Anything else you want. The workspace is yours to upgrade.
