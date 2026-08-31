@@ -66,6 +66,8 @@ Now work through the tools interactively - never dump all the instructions at on
 - Verify: call `https://api.apify.com/v2/users/me` with the token and confirm their username comes back.
 - If a run ever fails later, know the two billing errors: `not-enough-usage-to-run-paid-actor` means the credit is drained; `Monthly usage hard limit exceeded` means the self-set cap under Billing -> Limits needs raising.
 
+**Google Workspace (Docs & Sheets):** explain what it unlocks (share research as Docs, read briefs people send, pull numbers from Sheets), then walk them through connecting it: claude.ai → Settings → Connectors → Google Drive, authorize, done - it works inside Claude Code automatically. Verify: list their recent Drive files and name one back to them.
+
 **Gemini API (video understanding):** setup steps are being finalized - if `SETUP.md` does not have them yet, say it is coming and move on gracefully.
 
 **Optional upgrades (Meta Ads Manager, ad spy tools):** name them in one line each, say they can come later, do not set them up now.

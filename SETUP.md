@@ -13,6 +13,7 @@ Do not overthink it. These are just ways to give your workspace more senses and 
 ## Core (set these up to run the fundamentals)
 
 - **Web research - nothing to set up.** Claude Code searches the web and reads pages out of the box. That covers most of what market research needs: review pages, forums, articles, competitor sites.
+- **Google Workspace (Docs & Sheets)** - lets Claude read and write your Google Docs and Sheets: share a research doc or learnings summary with a coach or client as a Doc, read briefs people send you, pull numbers from a Sheet (like an Ads Manager export). Connect it in your Claude settings (claude.ai → Settings → Connectors → Google Drive) - it then works inside Claude Code automatically. One quirk to know: Claude can create Docs from plain text, but cannot edit or delete existing Drive files.
 - **Gemini API** - lets Claude watch and understand video. This powers two things: searching the footage in a brand's `content/` folder ("do I have a clip for this hook?"), and breaking down finished ads when you do learnings. *(Step-by-step instructions land here as we finalize them.)*
 
 ## The scrapers (how research reaches the places search can't)
