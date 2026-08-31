@@ -10,7 +10,7 @@ Generate the market research document for a brand. This is the foundation of eve
 ## Workflow
 
 1. Read `MANIFESTO.md`. Ask which brand if it is not obvious, then read that brand's `CONTEXT.md` and everything already in its `research/` folder. Do NOT ask the user for the website or product info - it is already in `CONTEXT.md`.
-2. Run the full research method below. Mine the real world, not just the files: use web search and page fetches to pull genuine voice-of-customer (review pages, Reddit threads, forums, articles) and link every source. For the platforms search cannot reach, the tool order is (see `SETUP.md`): **agent-reach first** (X, Reddit at depth, YouTube comments - it is free), **Apify where agent-reach can't go** (TikTok and Instagram comments, heavy review exports). Use whatever is set up; if neither is, note in the document which platforms went unmined.
+2. Run the full research method below. Mine the real world, not just the files: use web search and page fetches to pull genuine voice-of-customer (review pages, Reddit threads, forums, articles) and link every source. For the platforms search cannot reach - X, TikTok, and Instagram comments - use the Apify scraper if it is set up (see `SETUP.md`); free tier first, pay to win when the research matters. If it is not set up, note in the document which platforms went unmined.
 3. Write the document straight to `brands/<slug>/research/market-research.md`. Build it section by section in the file - there are no chat length limits here, so never trim for space. Depth is the requirement.
 4. Tell the user it is ready to review, and remind them of the manifesto: actually study it. The understanding has to live in their head, not the model's. Research is where the real work is.
 
