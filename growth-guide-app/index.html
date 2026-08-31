@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growth Guide</title>
+<style>
+:root{
+  --bg:#000; --surface:#1c1c1e; --surface-2:#161618; --raise:#2c2c2e;
+  --text:#f5f5f7; --text-2:#98989d; --text-3:#6e6e73;
+  --hair:rgba(255,255,255,.11); --hair-2:rgba(255,255,255,.07);
+  --accent:#0a84ff; --green:#30d158; --amber:#ffd60a; --red:#ff453a; --purple:#bf5af2; --teal:#64d2ff;
+  --shadow:0 1px 1px rgba(0,0,0,.3), 0 4px 14px rgba(0,0,0,.4);
+  --shadow-lift:0 6px 16px rgba(0,0,0,.5), 0 18px 44px rgba(0,0,0,.5);
+  --k:cubic-bezier(.4,0,.2,1); --r:14px;
+  --ch-loser:#ff453a; --ch-kpi:#0a84ff; --ch-spend:#0e8043; --ch-break:#b38a04;
+}
+[data-theme="light"]{
+  --bg:#f5f5f7; --surface:#fff; --surface-2:#fafafc; --raise:#fff;
+  --text:#1d1d1f; --text-2:#6e6e73; --text-3:#a1a1a6;
+  --hair:rgba(0,0,0,.09); --hair-2:rgba(0,0,0,.055);
+  --accent:#0071e3; --green:#34c759; --amber:#e6a700; --red:#ff3b30; --purple:#af52de; --teal:#0aa6d6;
+  --shadow:0 1px 1px rgba(0,0,0,.04), 0 4px 14px rgba(0,0,0,.05);
+  --shadow-lift:0 6px 16px rgba(0,0,0,.10), 0 18px 44px rgba(0,0,0,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.47;font-size:15px;letter-spacing:-.01em;
+  -webkit-font-smoothing:antialiased;min-height:100vh}
+button,input,textarea,select{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+::selection{background:rgba(10,132,255,.25)}
+*{scrollbar-width:thin;scrollbar-color:rgba(120,120,128,.35) transparent}
+::-webkit-scrollbar{height:8px;width:8px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(120,120,128,.28);border-radius:99px;border:2px solid transparent;background-clip:content-box}
+::-webkit-scrollbar-thumb:hover{background:rgba(120,120,128,.5);border:2px solid transparent;background-clip:content-box}
+.view{display:none;animation:fade .32s var(--k)}
+.view.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.phead{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.ptitle{font-size:31px;font-weight:700;letter-spacing:-.028em}
+.ptitle .e{margin-right:10px}
+.chev{background-repeat:no-repeat;background-position:right 10px center;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2398989d' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  appearance:none;-webkit-appearance:none}
+
+/* ---------- home ---------- */
+#home{max-width:640px;margin:0 auto;padding:14vh 24px 60px}
+#home .hi{font-size:15px;color:var(--text-3);margin-bottom:6px}
+#home h1{font-size:40px;font-weight:700;letter-spacing:-.035em;margin-bottom:44px}
+#home .lbl{font-size:11px;font-weight:650;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:10px}
+.brandlist{display:flex;flex-direction:column;gap:10px}
+.brandcard{background:var(--surface);border-radius:var(--r);box-shadow:var(--shadow);padding:18px 20px;display:flex;align-items:center;gap:14px;
+  cursor:pointer;transition:transform .18s var(--k),box-shadow .18s var(--k);text-align:left;width:100%}
+.brandcard:hover{transform:translateY(-1px);box-shadow:var(--shadow-lift)}
+.bmark{width:38px;height:38px;border-radius:11px;background:rgba(120,120,128,.16);display:grid;place-items:center;font-size:15px;font-weight:650;flex:none}
+.brandcard .bn{font-size:16px;font-weight:620;letter-spacing:-.016em}
+.brandcard .bs{font-size:12.5px;color:var(--text-3);margin-top:1px}
+.brandcard .arrow{margin-left:auto;color:var(--text-3);font-size:17px}
+.themefloat{position:fixed;top:18px;right:20px;z-index:60}
+
+/* ---------- brand view ---------- */
+.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);
+  backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--hair-2)}
+.top-in{max-width:1500px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;gap:14px}
+.back{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;color:var(--text-2);font-size:17px;transition:background .18s var(--k)}
+.back:hover{background:rgba(120,120,128,.14)}
+.top-in h1{font-size:18px;font-weight:640;letter-spacing:-.02em}
+.top-in .sub{font-size:13px;color:var(--text-3)}
+.seg{display:inline-flex;background:rgba(120,120,128,.16);border-radius:9px;padding:2px;gap:2px;margin-left:12px}
+.seg button{font-size:13px;font-weight:500;color:var(--text-2);padding:5px 15px;border-radius:7px;transition:all .22s var(--k)}
+.seg button.on{background:var(--raise);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.25);font-weight:590}
+.spacer{margin-left:auto}
+.icon-btn{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;color:var(--text-2);font-size:15px;transition:background .18s var(--k)}
+.icon-btn:hover{background:rgba(120,120,128,.14)}
+
+main{max-width:1500px;margin:0 auto;padding:26px 24px 60px}
+
+/* ---------- kanban ---------- */
+.boardwrap{overflow-x:auto;padding:6px 0 20px}
+.board{display:flex;gap:13px;align-items:flex-start;width:max-content}
+.col{background:var(--surface-2);border:1px solid var(--hair-2);border-radius:var(--r);padding:6px;min-width:262px;width:262px;flex:0 0 auto;transition:background .2s var(--k)}
+.col.over{background:color-mix(in srgb,var(--accent) 7%,var(--surface-2))}
+.col-head{display:flex;align-items:center;gap:8px;padding:9px 10px 10px}
+.col-dot{width:8px;height:8px;border-radius:99px;flex:none}
+.col-name{font-size:12.5px;font-weight:610;text-transform:uppercase;letter-spacing:.045em}
+.col-n{font-size:12.5px;color:var(--text-3);font-variant-numeric:tabular-nums;margin-left:auto}
+.stack{display:flex;flex-direction:column;gap:7px;padding:0 3px 4px;min-height:44px}
+.card{background:var(--surface);border-radius:11px;padding:11px 12px 10px;box-shadow:var(--shadow);cursor:grab;
+  transition:transform .18s var(--k),box-shadow .18s var(--k),opacity .18s var(--k)}
+.card:hover{transform:translateY(-1px);box-shadow:var(--shadow-lift)}
+.card:active{cursor:grabbing}
+.card.dragging{opacity:.35}
+.card.ins-b{box-shadow:0 -3px 0 -1px var(--accent), var(--shadow)}
+.card.ins-a{box-shadow:0 3px 0 -1px var(--accent), var(--shadow)}
+.cid{font-size:11px;color:var(--text-3);font-weight:600;font-variant-numeric:tabular-nums}
+.card h4{font-size:13.5px;font-weight:590;letter-spacing:-.012em;margin:2px 0 8px;line-height:1.35}
+.tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
+.chip{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.02em;color:var(--text-2);
+  background:rgba(120,120,128,.16);padding:2.5px 8px;border-radius:5px;white-space:nowrap}
+.cfoot{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-3);font-variant-numeric:tabular-nums;flex-wrap:wrap}
+.due{display:inline-block;font-size:10.5px;font-weight:650;padding:2.5px 8px;border-radius:99px;background:color-mix(in srgb,var(--amber) 16%,transparent);color:var(--amber)}
+.res{display:inline-block;font-size:10.5px;font-weight:650;padding:2.5px 8px;border-radius:99px;white-space:nowrap}
+.empty-col{padding:16px 10px 18px;text-align:center;color:var(--text-3);font-size:12.5px;pointer-events:none}
+
+/* ---------- results filters ---------- */
+.rfilters{display:flex;gap:8px;align-items:center;margin:2px 0 18px;flex-wrap:wrap}
+select.pick{background-color:rgba(120,120,128,.14);border:0;border-radius:9px;height:32px;width:172px;
+  padding:0 30px 0 11px;font-size:12.5px;outline:0;cursor:pointer;color:var(--text);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---------- idea bank ---------- */
+.wb-note{font-size:12.5px;color:var(--text-3);margin-bottom:20px}
+.wall{position:relative;min-height:66vh}
+.sticky{position:absolute;width:196px;min-height:172px;background:#ffe565;color:#453800;border-radius:3px;padding:16px 15px 14px;cursor:grab;
+  box-shadow:0 6px 14px rgba(0,0,0,.35), 0 1px 2px rgba(0,0,0,.25);
+  transition:box-shadow .2s var(--k);display:flex;flex-direction:column;text-align:left;user-select:none;touch-action:none}
+[data-theme="light"] .sticky{box-shadow:0 6px 14px rgba(0,0,0,.14), 0 1px 2px rgba(0,0,0,.1)}
+.wall .sticky:not(.new):nth-child(4n+1):hover{transform:rotate(-1.8deg) translateY(-3px) scale(1.02)}
+.wall .sticky:not(.new):nth-child(4n+2):hover{transform:rotate(1.4deg) translateY(-3px) scale(1.02)}
+.wall .sticky:not(.new):nth-child(4n+3):hover{transform:rotate(-.9deg) translateY(-3px) scale(1.02)}
+.wall .sticky:not(.new):nth-child(4n+4):hover{transform:rotate(2deg) translateY(-3px) scale(1.02)}
+.sticky:hover{box-shadow:0 14px 30px rgba(0,0,0,.4);z-index:5}
+.sticky:active{cursor:grabbing}
+.sticky .txt{font-size:14.5px;font-weight:560;line-height:1.4;letter-spacing:-.01em;flex:1}
+.sticky .date{font-size:11px;opacity:.55;margin-top:12px}
+.sticky .turn{display:none;margin-top:10px;background:rgba(0,0,0,.78);color:#fff;font-size:12px;font-weight:600;
+  padding:7px 10px;border-radius:8px;text-align:center;width:100%;cursor:pointer}
+.sticky.sel{transform:rotate(0) scale(1.03);z-index:6;box-shadow:0 16px 34px rgba(0,0,0,.45), 0 0 0 2.5px var(--accent)}
+.sticky.sel .turn{display:block}
+.sticky .x{position:absolute;top:5px;right:5px;font-size:13px;line-height:1;color:rgba(69,56,0,.45);cursor:pointer;opacity:0;padding:5px;transition:opacity .15s var(--k),color .15s var(--k)}
+.sticky:hover .x,.sticky.sel .x{opacity:1}
+.sticky .x:hover{color:#a5281c}
+.sticky.new{background:transparent;border:1.5px dashed color-mix(in srgb,var(--text) 55%,transparent);color:var(--text);box-shadow:none;align-items:center;justify-content:center;font-size:13.5px;font-weight:590;transform:none;left:0;top:0;cursor:pointer}
+.sticky.new:hover{border-color:var(--text);transform:rotate(-1.6deg) translateY(-3px) scale(1.02);box-shadow:none}
+
+/* ---------- analytics ---------- */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:12px;max-width:1080px}
+.tile{background:var(--surface);border-radius:var(--r);box-shadow:var(--shadow);padding:16px 18px}
+.tile .n{font-size:28px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.tile .l{font-size:11px;color:var(--text-3);margin-top:3px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.apanels{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:1080px}
+@media(max-width:900px){.apanels{grid-template-columns:1fr}}
+.apanel{background:var(--surface);border-radius:var(--r);box-shadow:var(--shadow);padding:17px 19px}
+.apanel h3{font-size:13.5px;font-weight:620;margin-bottom:14px;letter-spacing:-.014em}
+.anote{font-size:12.5px;color:var(--text-3)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:13px;font-size:11.5px;color:var(--text-2)}
+.legend b{color:var(--text);font-weight:640;font-variant-numeric:tabular-nums}
+.ldot{display:inline-block;width:8px;height:8px;border-radius:99px;margin-right:5px}
+.stackbar{display:flex;height:26px;gap:2px}
+.stackbar .seg{height:100%;min-width:6px;border-radius:2px}
+.stackbar .seg:first-child{border-radius:7px 2px 2px 7px}
+.stackbar .seg:last-child{border-radius:2px 7px 7px 2px}
+.hrow{margin-bottom:12px}
+.hrow:last-child{margin-bottom:2px}
+.hmeta{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px;align-items:baseline;gap:8px}
+.hmeta b{font-weight:600;display:flex;align-items:center;gap:7px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hmeta span{color:var(--text-2);font-variant-numeric:tabular-nums;font-size:11.5px;flex:none}
+.htrack{height:10px;border-radius:99px;background:rgba(120,120,128,.14);overflow:hidden;position:relative}
+.htrack .t{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:rgba(120,120,128,.34)}
+.htrack .w{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:var(--ch-break)}
+.mchart{display:flex;gap:30px;align-items:flex-end;padding:4px 6px 0;min-height:150px}
+.mgroup{display:flex;flex-direction:column;align-items:center;gap:7px}
+.mcol{display:flex;flex-direction:column-reverse;gap:2px;width:44px}
+.mseg{width:100%;border-radius:3px}
+.mlab{font-size:11.5px;color:var(--text-3)}
+.mtot{font-size:11.5px;color:var(--text-2);font-weight:600;font-variant-numeric:tabular-nums}
+.phrow{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:8px}
+.lens{display:inline-flex;background:rgba(120,120,128,.16);border-radius:8px;padding:2px;gap:2px}
+.lens button{font-size:11px;font-weight:550;color:var(--text-2);padding:3px 10px;border-radius:6px;transition:all .18s var(--k)}
+.lens button.on{background:var(--raise);color:var(--text);box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.pierow{display:flex;gap:22px;align-items:center}
+.pie{width:134px;height:134px;border-radius:50%;position:relative;flex:none}
+.pie::after{content:"";position:absolute;inset:27%;background:var(--surface);border-radius:50%}
+.pietot{position:absolute;inset:0;display:grid;place-items:center;font-size:19px;font-weight:700;z-index:1;font-variant-numeric:tabular-nums}
+.plegend{display:flex;flex-direction:column;gap:8px;font-size:12.5px;color:var(--text-2);min-width:0}
+.plegend b{color:var(--text);font-weight:640;font-variant-numeric:tabular-nums}
+.docgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;max-width:920px}
+.doccard{background:var(--surface);border-radius:var(--r);box-shadow:var(--shadow);padding:17px 19px;display:flex;align-items:center;gap:14px;text-align:left;cursor:pointer;transition:transform .22s var(--k),box-shadow .22s var(--k)}
+.doccard:hover{transform:translateY(-2px)}
+.dice{width:44px;height:44px;border-radius:12px;background:rgba(120,120,128,.14);display:grid;place-items:center;font-size:21px;flex:none}
+.dcn{font-size:15px;font-weight:640;color:var(--text)}
+.dcp{font-size:11.5px;color:var(--text-3);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin-top:2px}
+.dcm{font-size:11.5px;color:var(--text-2);margin-top:4px}
+.doccard .arrow{margin-left:auto;color:var(--text-3);font-size:18px}
+.docreader{max-width:800px}
+.docback{font-size:13px;color:var(--text-2);font-weight:560;margin-bottom:12px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:color .18s var(--k)}
+.docback:hover{color:var(--text)}
+.dochead{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--hair)}
+.prose{background:var(--surface);border-radius:var(--r);box-shadow:var(--shadow);padding:30px 34px;font-size:14px;line-height:1.65;color:var(--text-2)}
+.prose h2{font-size:17.5px;font-weight:700;color:var(--text);margin:24px 0 10px;letter-spacing:-.02em}
+.prose h3{font-size:14.5px;font-weight:650;color:var(--text);margin:18px 0 8px}
+.prose p{margin:0 0 12px}
+.prose ul{margin:0 0 12px;padding-left:20px}
+.prose li{margin-bottom:5px}
+.prose blockquote{border-left:3px solid var(--hair);margin:0 0 12px;padding:2px 0 2px 14px;color:var(--text-3);font-style:italic}
+.prose b{color:var(--text);font-weight:640}
+.prose hr{border:none;border-top:1px solid var(--hair);margin:18px 0}
+.delbtn{display:block;width:100%;margin-top:10px;padding:10px;border-radius:10px;font-size:13px;font-weight:590;color:var(--red);background:color-mix(in srgb,var(--red) 10%,transparent);transition:all .18s var(--k);text-align:center}
+.delbtn:hover{background:color-mix(in srgb,var(--red) 16%,transparent)}
+.delconfirm{margin-top:10px;background:color-mix(in srgb,var(--red) 8%,transparent);border-radius:10px;padding:13px 15px;font-size:12.5px;color:var(--text-2);text-align:center}
+.delrow{display:flex;gap:8px;margin-top:11px}
+.delrow button{flex:1;padding:8px;border-radius:8px;font-size:12.5px;font-weight:600;transition:all .18s var(--k)}
+.dcancel{background:rgba(120,120,128,.16);color:var(--text)}
+.dcancel:hover{background:rgba(120,120,128,.26)}
+.dyes{background:var(--red);color:#fff}
+.dyes:hover{filter:brightness(1.1)}
+#savedChip{position:fixed;right:18px;bottom:16px;z-index:80;font-size:12px;font-weight:600;color:var(--text-2);background:var(--surface);box-shadow:var(--shadow);border-radius:99px;padding:6px 13px;opacity:0;transform:translateY(6px);transition:opacity .25s var(--k),transform .25s var(--k);pointer-events:none}
+#savedChip.on{opacity:1;transform:none}
+#savedChip b{color:var(--green);font-weight:700}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(8px);z-index:90;background:var(--raise);color:var(--text);font-size:13px;font-weight:560;border-radius:12px;padding:10px 15px 10px 17px;box-shadow:0 12px 30px rgba(0,0,0,.35);display:flex;align-items:center;gap:16px;opacity:0;transition:opacity .22s var(--k),transform .22s var(--k);pointer-events:none}
+.toast.on{opacity:1;transform:translateX(-50%);pointer-events:auto}
+.toast button{color:var(--accent);font-weight:650;font-size:13px}
+.cheer{position:fixed;inset:0;z-index:120;display:grid;place-items:center;pointer-events:none;background:radial-gradient(circle at 50% 46%,color-mix(in srgb,var(--amber) 20%,transparent),transparent 44%);animation:cheerbg 1.7s var(--k) forwards}
+.cheer .in{text-align:center;animation:cheerpop 1.7s var(--k) forwards}
+.cheer .t{font-size:64px;display:block}
+.cheer .l{font-size:14px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--amber);margin-top:8px;display:block}
+@keyframes cheerbg{0%{opacity:0}12%{opacity:1}70%{opacity:1}100%{opacity:0}}
+@keyframes cheerpop{0%{opacity:0;transform:scale(.6)}14%{opacity:1;transform:scale(1.06)}22%{transform:scale(1)}70%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.02)}}
+
+/* ---------- modal ---------- */
+.scrim{position:fixed;inset:0;z-index:150;background:rgba(0,0,0,.42);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
+  display:none;place-items:center;padding:22px}
+.scrim.on{display:grid;animation:in .24s var(--k)}
+@keyframes in{from{opacity:0}to{opacity:1}}
+.sheet{background:var(--surface);border-radius:20px;width:min(620px,100%);max-height:88vh;overflow:auto;
+  box-shadow:0 30px 70px rgba(0,0,0,.5);animation:pop .3s var(--k)}
+@keyframes pop{from{transform:scale(.95) translateY(10px)}to{transform:none}}
+.sheet-in{padding:22px 26px 24px}
+.mhead{display:flex;align-items:flex-start;gap:10px}
+.mtitle{font-size:20px;font-weight:650;letter-spacing:-.022em;margin:1px 0 14px}
+.mtitle-in{font-size:20px;font-weight:650;letter-spacing:-.022em;margin:1px 0 14px;background:transparent;border:0;outline:0;width:100%;
+  border-bottom:1px solid transparent;transition:border-color .2s var(--k)}
+.mtitle-in:focus{border-bottom-color:var(--accent)}
+.close{margin-left:auto;flex:none;width:29px;height:29px;border-radius:99px;background:rgba(120,120,128,.16);color:var(--text-2);font-size:13px;display:grid;place-items:center}
+.frow{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--hair-2);font-size:13.5px;align-items:center}
+.frow.tall{align-items:flex-start}
+.frow:last-child{border-bottom:0}
+.frow .k{width:104px;flex:0 0 auto;color:var(--text-3);font-size:12.5px}
+.frow .v{flex:1;min-width:0}
+.mi{width:100%;background-color:var(--surface-2);border:1px solid var(--hair);border-radius:8px;padding:6px 10px;font-size:13px;outline:0}
+.mi:focus{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+select.mi{width:210px;height:32px;padding:0 30px 0 10px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+textarea.mi{min-height:72px;resize:vertical;line-height:1.55}
+.tline{padding:2px 0}
+.trow{position:relative;display:flex;gap:10px;align-items:baseline;padding:3px 0 3px 20px;font-size:12.5px}
+.trow::before{content:"";position:absolute;left:5.5px;top:0;bottom:0;width:1.5px;background:var(--hair-2)}
+.trow:first-child::before{top:50%}
+.trow:last-child::before{bottom:50%}
+.trow .tdot{position:absolute;left:2px;top:50%;transform:translateY(-50%);width:8px;height:8px;border-radius:99px;background:var(--text-3);border:2px solid var(--surface)}
+.trow.cur .tdot{background:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 20%,transparent)}
+.trow.fin .tdot{background:var(--green)}
+.trow .stg{width:104px;flex:0 0 auto;font-weight:550}
+.trow .dt{color:var(--text-3);font-variant-numeric:tabular-nums;font-size:12px}
+.trow .dur{margin-left:auto;color:var(--text-3);font-size:11px;font-variant-numeric:tabular-nums;opacity:.8}
+.movebtn{margin-top:16px;width:100%;background:var(--accent);color:#fff;font-size:13.5px;font-weight:600;padding:10px;border-radius:11px;transition:filter .18s var(--k)}
+.movebtn:hover{filter:brightness(1.1)}
+.verdicts{margin-top:16px}
+.verdicts .vlbl{font-size:12px;color:var(--text-3);font-weight:600;margin-bottom:8px}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.vbtn{font-size:12.5px;font-weight:650;padding:9px;border-radius:10px;transition:filter .18s var(--k)}
+.vbtn:hover{filter:brightness(1.15)}
+.st{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:620;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.st i{width:6px;height:6px;border-radius:99px;background:currentColor;font-style:normal}
+
+/* ---------- form ---------- */
+.form label{display:block;font-size:12px;color:var(--text-3);margin:13px 0 5px;font-weight:600}
+.form input,.form select,.form textarea{width:100%;border:1px solid var(--hair);border-radius:10px;padding:9px 12px;font-size:13.5px;background-color:var(--surface-2);outline:0}
+.form select{appearance:none;-webkit-appearance:none;background-repeat:no-repeat;background-position:right 12px center;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2398989d' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  padding-right:32px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+.form input:focus,.form select:focus,.form textarea:focus{box-shadow:0 0 0 3.5px color-mix(in srgb,var(--accent) 22%,transparent)}
+.form textarea{min-height:64px;resize:vertical}
+.form .hint{font-size:12px;color:var(--text-3);margin-top:4px;line-height:1.5}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.actions{margin-top:20px;display:flex;gap:8px;justify-content:flex-end}
+.ghost{border:1px solid var(--hair);border-radius:99px;padding:7px 15px;font-size:13px;color:var(--text-2)}
+.primary{background:var(--accent);color:#fff;font-size:13px;font-weight:600;padding:8px 17px;border-radius:99px;transition:filter .18s var(--k)}
+.primary:hover{filter:brightness(1.1)}
+.foot{font-size:11.5px;color:var(--text-3);text-align:center;padding:18px 24px}
+</style>
+</head>
+<body>
+
+<button class="icon-btn themefloat" id="themeBtn" onclick="toggleTheme()" title="Light / dark">☀︎</button>
+<div id="savedChip">Saved to file <b>✓</b></div>
+<div class="toast" id="undoToast">Idea deleted<button onclick="undoIdea()">Undo</button></div>
+
+<!-- HOME -->
+<div class="view on" id="home">
+  <div class="hi">Welcome back.</div>
+  <h1>Growth Guide</h1>
+  <div class="lbl">Your brands</div>
+  <div class="brandlist" id="brandlist"></div>
+</div>
+
+<!-- BRAND -->
+<div class="view" id="brand">
+  <div class="top"><div class="top-in">
+    <button class="back" onclick="goHome()">‹</button>
+    <h1 id="bname"></h1><span class="sub">Growth Guide</span>
+    <div class="seg">
+      <button id="tab-docs" class="on" onclick="setTab('docs')">Home</button>
+      <button id="tab-ideas" onclick="setTab('ideas')">Idea Bank</button>
+      <button id="tab-board" onclick="setTab('board')">Board</button>
+      <button id="tab-results" onclick="setTab('results')">Results</button>
+      <button id="tab-analytics" onclick="setTab('analytics')">Analytics</button>
+    </div>
+    <div class="spacer"></div>
+  </div></div>
+  <main>
+    <div class="view on" id="docsView">
+      <div class="phead"><h2 class="ptitle"><span class="e">🏠</span>Home</h2></div>
+      <div class="wb-note">The foundational documents behind this brand - pulled straight from the .md files in the workspace.</div>
+      <div id="docGridWrap"><div class="docgrid" id="docgrid"></div></div>
+      <div id="docReader" class="docreader" hidden></div>
+    </div>
+    <div class="view" id="ideasView">
+      <div class="phead"><h2 class="ptitle"><span class="e">📥</span>Idea Bank</h2></div>
+      <div class="wb-note">Raw ideas live here like a whiteboard - drag them around, click one to turn it into a concept.</div>
+      <div class="wall" id="wall"></div>
+    </div>
+    <div class="view" id="boardView">
+      <h2 class="ptitle" style="margin-bottom:14px"><span class="e">📑</span>Board</h2>
+      <div class="boardwrap"><div class="board" id="board"></div></div>
+    </div>
+    <div class="view" id="resultsView">
+      <h2 class="ptitle" style="margin-bottom:14px"><span class="e">📊</span>Results</h2>
+      <div class="rfilters">
+        <select class="pick chev" id="rf_avatar" onchange="renderResults()"></select>
+        <select class="pick chev" id="rf_desire" onchange="renderResults()"></select>
+        <select class="pick chev" id="rf_aw" onchange="renderResults()"><option>All awareness</option><option>Unaware</option><option>Problem aware</option><option>Solution aware</option><option>Product aware</option><option>Most aware</option></select>
+        <select class="pick chev" id="rf_type" onchange="renderResults()"><option value="All types">All types</option><option value="Ideation">💡 Ideation</option><option value="Imitation">🎭 Imitation</option><option value="Iteration">🔄 Iteration</option></select>
+        <select class="pick chev" id="rf_format" onchange="renderResults()"><option value="All formats">All formats</option><option value="Video">🎬 Video</option><option value="Image">🖼️ Image</option></select>
+      </div>
+      <div class="boardwrap"><div class="board" id="resultsBoard"></div></div>
+    </div>
+    <div class="view" id="analyticsView">
+      <h2 class="ptitle" style="margin-bottom:14px"><span class="e">📈</span>Analytics</h2>
+      <div id="analyticsWrap"></div>
+    </div>
+  </main>
+</div>
+
+<div class="foot">Live - every change here is written straight into <b>brands/&lt;brand&gt;/growth-guide.md</b>; the docs on Home render the research + learnings .md files.</div>
+
+<!-- card sheet -->
+<div class="scrim" id="cardScrim" onclick="if(event.target===this)this.classList.remove('on')"><div class="sheet"><div class="sheet-in" id="cardSheet"></div></div></div>
+
+<!-- turn into concept -->
+<div class="scrim" id="conceptScrim" onclick="if(event.target===this)this.classList.remove('on')">
+  <div class="sheet"><div class="sheet-in">
+    <div class="mhead"><div class="mtitle">⚡ Turn into concept</div><button class="close" onclick="document.getElementById('conceptScrim').classList.remove('on')">✕</button></div>
+    <div class="form">
+      <label>Concept name</label><input id="c_title">
+      <div class="grid2">
+        <div><label>Avatar</label><select id="c_avatar"></select></div>
+        <div><label>Desire</label><select id="c_desire"></select></div>
+        <div><label>Type</label><select id="c_type"><option value="Ideation">💡 Ideation</option><option value="Imitation">🎭 Imitation</option><option value="Iteration">🔄 Iteration</option></select></div>
+        <div><label>Format</label><select id="c_format"><option value="Video">🎬 Video</option><option value="Image">🖼️ Image</option></select></div>
+        <div><label>Awareness</label><select id="c_aw"><option>Unaware</option><option>Problem aware</option><option>Solution aware</option><option>Product aware</option><option>Most aware</option></select></div>
+      </div>
+      <label>What</label><textarea id="c_what" placeholder="What is the ad? The concept in one clear paragraph."></textarea>
+      <label>Why</label><textarea id="c_why" placeholder="Why do you want to test this? What gives you confidence it will perform?"></textarea>
+      <label>How</label><textarea id="c_how" placeholder="How does it get executed? Format, style, structure."></textarea>
+      <div class="hint">Every ad needs its memo: WHAT it is, WHY you are testing it, HOW it gets made. If you cannot write these, the idea is not ready.</div>
+      <div class="actions">
+        <button class="ghost" onclick="document.getElementById('conceptScrim').classList.remove('on')">Cancel</button>
+        <button class="primary" onclick="confirmConcept()">Create the concept →</button>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- new idea -->
+<div class="scrim" id="ideaScrim" onclick="if(event.target===this)this.classList.remove('on')">
+  <div class="sheet" style="width:min(440px,100%)"><div class="sheet-in">
+    <div class="mhead"><div class="mtitle">💡 New idea</div><button class="close" onclick="document.getElementById('ideaScrim').classList.remove('on')">✕</button></div>
+    <div class="form">
+      <label>What's the idea?</label><textarea id="i_text" placeholder="Just get it out of your head before you forget it."></textarea>
+      <div class="actions">
+        <button class="ghost" onclick="document.getElementById('ideaScrim').classList.remove('on')">Cancel</button>
+        <button class="primary" onclick="addIdea()">Stick it on the wall</button>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<script>
+const TODAY=new Date(new Date().toDateString());
+const tiso=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const STAGES=['concepts','briefing','editing','testing','learnings'];
+const VERDICTS=['loser','kpi winner','spend winner','breakthrough'];
+const AWS=['Unaware','Problem aware','Solution aware','Product aware','Most aware'];
+const TE={'Ideation':'💡','Imitation':'🎭','Iteration':'🔄'};
+const FE={'Video':'🎬','Image':'🖼️'};
+const VE={'loser':'❌','kpi winner':'🎯','spend winner':'💸','breakthrough':'🏆'};
+const fmt=d=>{const x=new Date(d);return String(x.getDate()).padStart(2,'0')+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+x.getFullYear()};
+const days=(a,b)=>Math.round((new Date(b)-new Date(a))/86400000);
+const STC={'concepts':'var(--text-3)','briefing':'var(--purple)','editing':'var(--teal)','testing':'var(--accent)','learnings':'var(--amber)'};
+const RSC={'breakthrough':'var(--amber)','spend winner':'var(--green)','kpi winner':'var(--accent)','loser':'var(--red)'};
+const tint=(v,p)=>`color-mix(in srgb, ${v} ${p}%, transparent)`;
+
+let brands=[];
+
+let cur=null, selIdea=null, dragId=null, insTarget=null, insBefore=false;
+
+/* ---------- file-backed persistence ---------- */
+async function api(p,body){
+  const r=await fetch(p,body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:undefined);
+  if(!r.ok)throw new Error((await r.text())||r.status);
+  return r.json();
+}
+function save(){
+  if(!cur)return;
+  api('/api/guide',{slug:cur.slug,brand:cur}).then(flashSaved).catch(e=>alert('Could not save to the markdown file: '+e.message));
+}
+function learn(id){ api('/api/learn',{slug:cur.slug,id}).catch(()=>{}); }
+async function refresh(){
+  try{
+    brands=await api('/api/brands');
+    if(cur){
+      cur=brands.find(b=>b.slug===cur.slug)||null;
+      if(!cur){goHome();return;}
+      renderDocs(); renderWall(); renderBoard(); renderResults();
+    } else renderHome();
+  }catch(e){console.warn('refresh failed',e);}
+}
+window.addEventListener('focus',()=>{ if(!document.querySelector('.scrim.on')) refresh(); });
+let toastT=null, lastDeleted=null;
+function flashSaved(){const el=document.getElementById('savedChip');el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('on'),1300);}
+function celebrate(){const d=document.createElement('div');d.className='cheer';d.innerHTML='<div class="in"><span class="t">🏆</span><span class="l">Breakthrough banked</span></div>';document.body.appendChild(d);setTimeout(()=>d.remove(),1750);}
+function showToast(){const t=document.getElementById('undoToast');t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(hideToast,5000);}
+function hideToast(){document.getElementById('undoToast').classList.remove('on');clearTimeout(toastT);}
+function undoIdea(){if(!lastDeleted)return;cur.ideas.splice(Math.min(lastDeleted.idx,cur.ideas.length),0,lastDeleted.idea);lastDeleted=null;hideToast();save();renderWall();}
+const EMPTYC={concepts:'Nothing here yet - promote an idea from the Idea Bank',briefing:'Nothing briefing - move a concept forward when its memo is ready',editing:'Nothing editing - brief a concept and hand it off',testing:'Nothing testing - launch something from editing',learnings:'Learnings land here after 5-7 days of testing'};
+const EMPTYR={'loser':'None yet - losers teach too','kpi winner':'None yet - efficient-but-not-dominant lands here','spend winner':'None yet - spend stealers land here','breakthrough':'The one that matters - none yet'};
+const lastMove=c=>c.tl[c.tl.length-1][1];
+const dis=c=>days(lastMove(c),TODAY);
+const due=c=>c.status==='testing'&&dis(c)>=7;
+const stChip=s=>s==='done'?'<span class="st" style="color:var(--green);background:'+tint('var(--green)',14)+'"><i></i>done</span>':`<span class="st" style="color:${STC[s]};background:${tint(STC[s],14)}"><i></i>${s}</span>`;
+const resChip=r=>r?`<span class="res" style="color:${RSC[r]};background:${tint(RSC[r],15)}">${VE[r]} ${r}</span>`:'';
+
+function renderHome(){
+  if(!brands.length){
+    document.getElementById('brandlist').innerHTML='<div class="anote" style="padding:22px;background:var(--surface);border-radius:var(--r);box-shadow:var(--shadow);font-size:13.5px;line-height:1.6">No brands yet. Open Claude Code in this workspace and run <b style="color:var(--text)">/new-brand</b> - it builds the research, the avatars, the desires, and the growth guide, and the brand shows up here.</div>';
+    return;
+  }
+  document.getElementById('brandlist').innerHTML=brands.map(b=>{
+    const testing=b.cards.filter(c=>c.status==='testing').length;
+    const done=b.cards.filter(c=>c.status==='done').length;
+    const dueN=b.cards.filter(due).length;
+    return `<button class="brandcard" onclick="openBrand('${b.slug}')">
+      <span class="bmark">${b.name[0]}</span>
+      <span><span class="bn">${b.name}</span>${dueN?` <span class="due" style="margin-left:6px">${dueN} learning${dueN>1?'s':''} due</span>`:''}<br><span class="bs">${b.ideas.length} ideas · ${b.cards.length-done} in play · ${testing} testing · ${done} done</span></span>
+      <span class="arrow">›</span></button>`;
+  }).join('');
+}
+function openBrand(slug){
+  cur=brands.find(b=>b.slug===slug);
+  document.getElementById('bname').textContent=cur.name;
+  document.getElementById('home').classList.remove('on');
+  document.getElementById('brand').classList.add('on');
+  document.getElementById('rf_avatar').innerHTML='<option>All avatars</option>'+cur.avatars.map(a=>`<option>${a}</option>`).join('');
+  document.getElementById('rf_desire').innerHTML='<option>All desires</option>'+cur.desires.map(d=>`<option>${d}</option>`).join('');
+  ['rf_aw','rf_type','rf_format'].forEach(id=>document.getElementById(id).selectedIndex=0);
+  setTab('docs'); renderDocs(); renderWall(); renderBoard(); renderResults();
+  window.scrollTo(0,0);
+}
+
+/* ---------- home tab: foundational docs ---------- */
+const DOCS=[
+ ['research','🔍','Market research','research/market-research.md'],
+ ['avatars','👤','Avatars','research/avatars.md'],
+ ['desires','🔥','Desires','research/desires.md'],
+ ['learnings','📖','Learnings','learnings/learnings.md'],
+];
+function md(src){
+  const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  const inline=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+  let out='',list=false,para=[];
+  const flush=()=>{if(para.length){out+='<p>'+para.join(' ')+'</p>';para=[]}};
+  const endList=()=>{if(list){out+='</ul>';list=false}};
+  src.trim().split('\n').forEach(l=>{
+    const t=l.trim();
+    if(!t){flush();endList();return}
+    if(t.startsWith('### ')){flush();endList();out+='<h3>'+inline(t.slice(4))+'</h3>';return}
+    if(t.startsWith('## ')){flush();endList();out+='<h2>'+inline(t.slice(3))+'</h2>';return}
+    if(t.startsWith('# ')){flush();endList();out+='<h2>'+inline(t.slice(2))+'</h2>';return}
+    if(t==='---'){flush();endList();out+='<hr>';return}
+    if(t.startsWith('> ')){flush();endList();out+='<blockquote>'+inline(t.slice(2))+'</blockquote>';return}
+    if(t.startsWith('- ')){flush();if(!list){out+='<ul>';list=true}out+='<li>'+inline(t.slice(2))+'</li>';return}
+    para.push(inline(t));
+  });
+  flush();endList();
+  return out;
+}
+function renderDocs(){
+  document.getElementById('docgrid').innerHTML=DOCS.map(([k,e,n,p])=>{
+    const d=cur.docs[k];
+    return `<button class="doccard" onclick="openDoc('${k}')">
+      <span class="dice">${e}</span>
+      <span style="min-width:0"><span class="dcn">${n}</span><div class="dcp">${p}</div><div class="dcm">Updated ${fmt(d.updated)}</div></span>
+      <span class="arrow">›</span></button>`;
+  }).join('');
+  closeDoc();
+}
+function openDoc(k){
+  const [,e,n,p]=DOCS.find(x=>x[0]===k), d=cur.docs[k];
+  document.getElementById('docGridWrap').hidden=true;
+  const r=document.getElementById('docReader'); r.hidden=false;
+  r.innerHTML=`<button class="docback" onclick="closeDoc()">‹ All documents</button>
+    <div class="prose">
+      <div class="dochead"><span class="dice">${e}</span><div><div class="dcn" style="font-size:19px">${n}</div><div class="dcp">${p} · updated ${fmt(d.updated)}</div></div></div>
+      ${md(d.md)}
+    </div>`;
+  window.scrollTo(0,0);
+}
+function closeDoc(){
+  document.getElementById('docGridWrap').hidden=false;
+  document.getElementById('docReader').hidden=true;
+}
+function goHome(){
+  cur=null;
+  document.getElementById('brand').classList.remove('on');
+  document.getElementById('home').classList.add('on');
+  renderHome();
+}
+function setTab(t){
+  ['docs','ideas','board','results','analytics'].forEach(x=>{
+    document.getElementById(x+'View').classList.toggle('on',x===t);
+    document.getElementById('tab-'+x).classList.toggle('on',x===t);
+  });
+}
+
+/* ---------- cards + boards ---------- */
+function cardHTML(c){
+  const foot = c.status==='done'
+    ? `<span>done ${fmt(lastMove(c))}</span>`
+    : `<span>${dis(c)}d here</span>${due(c)?'<span class="due">learnings due</span>':''}`;
+  return `<div class="card" draggable="true" data-id="${c.id}"
+      ondragstart="dragStart(event,'${c.id}')" ondragend="dragEnd(event)"
+      ondragover="cardOver(event,'${c.id}')" ondrop="cardDrop(event)"
+      onclick="openCard('${c.id}')">
+    <div class="cid">${c.id}</div>
+    <h4>${c.title}</h4>
+    <div class="tags"><span class="chip">${c.avatar}</span><span class="chip">${TE[c.type]} ${c.type}</span><span class="chip">${FE[c.format]} ${c.format}</span></div>
+    <div class="cfoot">${foot}</div></div>`;
+}
+function renderBoard(){
+  document.getElementById('board').innerHTML=STAGES.map(st=>{
+    const cs=cur.cards.filter(c=>c.status===st);
+    return `<div class="col" ondragover="colOver(event)" ondragleave="colLeave(event)" ondrop="colDrop(event,'status','${st}')">
+      <div class="col-head"><span class="col-dot" style="background:${STC[st]}"></span>
+      <span class="col-name">${st}</span><span class="col-n">${cs.length}</span></div>
+      <div class="stack">${cs.map(cardHTML).join('')||`<div class="empty-col">${EMPTYC[st]}</div>`}</div></div>`;
+  }).join('');
+}
+function renderResults(){
+  if(!cur)return;
+  const fa=document.getElementById('rf_avatar').value, fd=document.getElementById('rf_desire').value,
+    fw=document.getElementById('rf_aw').value,
+    ft=document.getElementById('rf_type').value, ff=document.getElementById('rf_format').value;
+  const done=cur.cards.filter(c=>c.status==='done'
+    &&(fa==='All avatars'||c.avatar===fa)&&(fd==='All desires'||c.desire===fd)
+    &&(fw==='All awareness'||c.aw===fw)
+    &&(ft==='All types'||c.type===ft)&&(ff==='All formats'||c.format===ff));
+  document.getElementById('resultsBoard').innerHTML=VERDICTS.map(v=>{
+    const cs=done.filter(c=>c.result===v);
+    return `<div class="col" ondragover="colOver(event)" ondragleave="colLeave(event)" ondrop="colDrop(event,'result','${v}')">
+      <div class="col-head"><span class="col-dot" style="background:${RSC[v]}"></span>
+      <span class="col-name" style="color:${RSC[v]}">${VE[v]} ${v}</span><span class="col-n">${cs.length}</span></div>
+      <div class="stack">${cs.map(cardHTML).join('')||`<div class="empty-col">${EMPTYR[v]}</div>`}</div></div>`;
+  }).join('');
+  renderAnalytics();
+}
+
+/* ---------- board drag & drop ---------- */
+function dragStart(e,id){
+  dragId=id; e.dataTransfer.effectAllowed='move';
+  try{e.dataTransfer.setData('text/plain',id)}catch(x){}
+  setTimeout(()=>{const el=document.querySelector(`.card[data-id="${id}"]`);if(el)el.classList.add('dragging')},0);
+}
+function dragEnd(e){ clearMarks(); dragId=null; insTarget=null; }
+function clearMarks(){
+  document.querySelectorAll('.card.ins-b,.card.ins-a').forEach(el=>el.classList.remove('ins-b','ins-a'));
+  document.querySelectorAll('.card.dragging').forEach(el=>el.classList.remove('dragging'));
+  document.querySelectorAll('.col.over').forEach(el=>el.classList.remove('over'));
+}
+function cardOver(e,targetId){
+  if(!dragId||targetId===dragId)return;
+  e.preventDefault(); e.stopPropagation();
+  const el=e.currentTarget, r=el.getBoundingClientRect();
+  insBefore = (e.clientY - r.top) < r.height/2;
+  insTarget = targetId;
+  document.querySelectorAll('.card.ins-b,.card.ins-a').forEach(x=>x.classList.remove('ins-b','ins-a'));
+  el.classList.add(insBefore?'ins-b':'ins-a');
+}
+function cardDrop(e){
+  e.preventDefault(); e.stopPropagation();
+  const col=e.currentTarget.closest('.col');
+  const drop=col.getAttribute('ondrop');
+  const m=drop.match(/colDrop\(event,'(\w+)','([^']+)'\)/);
+  if(m) doMove(m[1],m[2]);
+  clearMarks(); dragId=null; insTarget=null;
+}
+function colOver(e){ if(!dragId)return; e.preventDefault(); e.currentTarget.classList.add('over'); }
+function colLeave(e){ e.currentTarget.classList.remove('over'); }
+function colDrop(e,kind,val){
+  e.preventDefault();
+  doMove(kind,val);
+  clearMarks(); dragId=null; insTarget=null;
+}
+function doMove(kind,val){
+  if(!dragId||!cur)return;
+  const c=cur.cards.find(x=>x.id===dragId); if(!c)return;
+  if(kind==='status' && c.status!==val){ c.status=val; c.tl.push([val,tiso()]); }
+  if(kind==='result' && c.result!==val){ c.result=val; }
+  const arr=cur.cards;
+  arr.splice(arr.indexOf(c),1);
+  if(insTarget && insTarget!==c.id){
+    const t=arr.findIndex(x=>x.id===insTarget);
+    if(t>-1) arr.splice(insBefore?t:t+1,0,c); else arr.push(c);
+  } else arr.push(c);
+  save();
+  renderBoard(); renderResults();
+}
+
+/* ---------- idea bank (free-drag whiteboard) ---------- */
+let sMoved=false;
+function renderWall(){
+  const newCard=`<div class="sticky new" onclick="document.getElementById('ideaScrim').classList.add('on');document.getElementById('i_text').value=''">+ New idea</div>`;
+  document.getElementById('wall').innerHTML=newCard+cur.ideas.map((i,idx)=>
+    `<div class="sticky ${selIdea===idx?'sel':''}" style="left:${i.x}px;top:${i.y}px"
+       onpointerdown="stickyDown(event,${idx})" onclick="pickIdea(event,${idx})">
+      <span class="x" onclick="delIdea(event,${idx})">✕</span>
+      <span class="txt">${i.text}</span><span class="date">${fmt(i.date)}</span>
+      <span class="turn" onclick="turnIdea(event,${idx})">⚡ Turn into concept →</span>
+    </div>`).join('');
+}
+function stickyDown(e,idx){
+  if(e.target.closest('.turn,.x'))return;
+  const el=e.currentTarget, i=cur.ideas[idx];
+  const sx=e.clientX, sy=e.clientY, ox=i.x, oy=i.y;
+  sMoved=false;
+  el.setPointerCapture(e.pointerId);
+  el.onpointermove=ev=>{
+    const dx=ev.clientX-sx, dy=ev.clientY-sy;
+    if(Math.abs(dx)>4||Math.abs(dy)>4) sMoved=true;
+    if(sMoved){
+      i.x=Math.max(0,ox+dx); i.y=Math.max(0,oy+dy);
+      el.style.left=i.x+'px'; el.style.top=i.y+'px'; el.style.zIndex=20;
+    }
+  };
+  el.onpointerup=()=>{ el.onpointermove=null; el.onpointerup=null; el.style.zIndex='';
+    if(sMoved){ save(); setTimeout(()=>sMoved=false,0); }
+  };
+}
+function pickIdea(e,idx){ if(sMoved)return; selIdea = selIdea===idx? null : idx; renderWall(); }
+function delIdea(e,idx){ e.stopPropagation(); lastDeleted={idea:cur.ideas[idx],idx}; cur.ideas.splice(idx,1); selIdea=null; save(); showToast(); renderWall(); }
+function turnIdea(e,idx){
+  e.stopPropagation();
+  selIdea=idx;
+  const i=cur.ideas[idx];
+  document.getElementById('c_title').value='';
+  document.getElementById('c_avatar').innerHTML=cur.avatars.map(a=>`<option>${a}</option>`).join('');
+  document.getElementById('c_desire').innerHTML=cur.desires.map(d=>`<option>${d}</option>`).join('');
+  document.getElementById('c_what').value=i.text;
+  document.getElementById('c_why').value='';
+  document.getElementById('c_how').value='';
+  document.getElementById('conceptScrim').classList.add('on');
+}
+function confirmConcept(){
+  const i=cur.ideas[selIdea];
+  const maxB=Math.max(...cur.cards.map(c=>+c.id.split('-')[0].slice(1)),1);
+  const inBatch=cur.cards.filter(c=>c.id.startsWith('B'+maxB)).length;
+  const id=`B${maxB}-C${inBatch+1}`;
+  const what=document.getElementById('c_what').value.trim(), why=document.getElementById('c_why').value.trim(), how=document.getElementById('c_how').value.trim();
+  cur.cards.push({id,title:document.getElementById('c_title').value.trim()||'Untitled concept',
+    avatar:document.getElementById('c_avatar').value,desire:document.getElementById('c_desire').value,
+    aw:document.getElementById('c_aw').value,
+    type:document.getElementById('c_type').value,format:document.getElementById('c_format').value,iterates:null,status:'concepts',
+    tl:[['idea',i?i.date:tiso()],['concepts',tiso()]],
+    idea:`WHAT: ${what||'-'} WHY: ${why||'-'} HOW: ${how||'-'}`,brief:null,finalAd:null,result:null,learning:null});
+  if(i) cur.ideas.splice(selIdea,1);
+  selIdea=null;
+  save();
+  document.getElementById('conceptScrim').classList.remove('on');
+  renderWall(); renderBoard(); setTab('board');
+}
+function addIdea(){
+  const t=document.getElementById('i_text').value.trim();
+  if(t) cur.ideas.push({text:t,date:tiso(),x:250+(cur.ideas.length*52)%620,y:16+(cur.ideas.length*78)%280});
+  document.getElementById('ideaScrim').classList.remove('on');
+  save();
+  renderWall();
+}
+
+/* ---------- editable card sheet ---------- */
+function opts(list,sel,emap){
+  let l=[...list]; if(sel&&!l.includes(sel))l.unshift(sel);
+  return l.map(o=>`<option value="${o}" ${o===sel?'selected':''}>${emap&&emap[o]?emap[o]+' ':''}${o}</option>`).join('');
+}
+function openCard(id){
+  if(dragId)return;
+  const c=cur.cards.find(x=>x.id===id);if(!c)return;
+  let tl='';
+  for(let i=0;i<c.tl.length;i++){
+    const[st,d]=c.tl[i];const next=i<c.tl.length-1?c.tl[i+1][1]:(c.status==='done'?null:TODAY);
+    const dur=next?days(d,next):null;
+    const isLast=i===c.tl.length-1;
+    const cls=isLast?(c.status==='done'?'fin':'cur'):'';
+    tl+=`<div class="trow ${cls}"><span class="tdot"></span><span class="stg">${st}</span><span class="dt">${fmt(d)}</span>${dur!==null&&dur>0?`<span class="dur">${dur}d</span>`:''}</div>`;
+  }
+  let h=`<div class="mhead"><div style="flex:1"><div class="cid">${c.id}</div>
+      <input class="mtitle-in" value="${c.title.replace(/"/g,'&quot;')}" onchange="editCard('${c.id}','title',this.value)"></div>
+    <button class="close" onclick="document.getElementById('cardScrim').classList.remove('on')">✕</button></div>`;
+  h+=`<div class="frow"><span class="k">Status</span><span class="v">${stChip(c.status)}${due(c)?' <span class="due">learnings due</span>':''}${c.result?' '+resChip(c.result):''}</span></div>`;
+  h+=`<div class="frow"><span class="k">Avatar</span><span class="v"><select class="mi chev" onchange="editCard('${c.id}','avatar',this.value)">${opts(cur.avatars,c.avatar)}</select></span></div>`;
+  h+=`<div class="frow"><span class="k">Desire</span><span class="v"><select class="mi chev" onchange="editCard('${c.id}','desire',this.value)">${opts(cur.desires,c.desire)}</select></span></div>`;
+  h+=`<div class="frow"><span class="k">Awareness</span><span class="v"><select class="mi chev" onchange="editCard('${c.id}','aw',this.value)">${opts(AWS,c.aw)}</select></span></div>`;
+  h+=`<div class="frow"><span class="k">Type</span><span class="v"><select class="mi chev" onchange="editCard('${c.id}','type',this.value)">${opts(['Ideation','Imitation','Iteration'],c.type,TE)}</select>${c.iterates?` <span class="cid" style="margin-left:8px">iterates ${c.iterates}</span>`:''}</span></div>`;
+  h+=`<div class="frow"><span class="k">Format</span><span class="v"><select class="mi chev" onchange="editCard('${c.id}','format',this.value)">${opts(['Video','Image'],c.format,FE)}</select></span></div>`;
+  h+=`<div class="frow"><span class="k">Brief</span><span class="v"><input class="mi" value="${(c.brief||'').replace(/"/g,'&quot;')}" placeholder="link to the brief" onchange="editCard('${c.id}','brief',this.value)"></span></div>`;
+  h+=`<div class="frow"><span class="k">Final ad</span><span class="v"><input class="mi" value="${(c.finalAd||'').replace(/"/g,'&quot;')}" placeholder="link, or the file in ads/" onchange="editCard('${c.id}','finalAd',this.value)"></span></div>`;
+  h+=`<div class="frow tall"><span class="k">The memo</span><span class="v"><textarea class="mi" style="width:100%" onchange="editCard('${c.id}','idea',this.value)">${c.idea}</textarea></span></div>`;
+  h+=`<div class="frow tall"><span class="k">Timeline</span><span class="v tline">${tl}</span></div>`;
+  if(c.status==='learnings'||c.status==='done'||c.learning){
+    h+=`<div class="frow tall"><span class="k">Learning</span><span class="v"><textarea class="mi" style="width:100%;min-height:110px" placeholder="What did this ad teach you? Winners AND losers - write it long." onchange="editCard('${c.id}','learning',this.value)">${c.learning||''}</textarea></span></div>`;
+  }
+  if(c.status==='learnings'){
+    h+=`<div class="verdicts"><div class="vlbl">Pull the learning, then mark the verdict:</div><div class="vgrid">`+
+      VERDICTS.map(v=>`<button class="vbtn" style="color:${RSC[v]};background:${tint(RSC[v],14)}" onclick="markDone('${c.id}','${v}')">${VE[v]} ${v}</button>`).join('')+
+      `</div></div>`;
+  } else if(c.status!=='done'){
+    const ni=STAGES.indexOf(c.status);
+    h+=`<button class="movebtn" onclick="moveCard('${c.id}')">Move to ${STAGES[ni+1]} →</button>`;
+  }
+  h+=`<button class="delbtn" id="delAsk" onclick="askDel(false)">Delete concept</button>
+    <div class="delconfirm" id="delConfirm" hidden>
+      <span>Are you sure? This deletes the concept and everything on it forever.</span>
+      <div class="delrow"><button class="dcancel" onclick="askDel(true)">Cancel</button><button class="dyes" onclick="delCard('${c.id}')">Yes, delete</button></div>
+    </div>`;
+  document.getElementById('cardSheet').innerHTML=h;
+  document.getElementById('cardScrim').classList.add('on');
+}
+function editCard(id,field,value){
+  const c=cur.cards.find(x=>x.id===id); if(!c)return;
+  c[field]=value;
+  save();
+  renderBoard(); renderResults();
+}
+function moveCard(id){
+  const c=cur.cards.find(x=>x.id===id);
+  const next=STAGES[STAGES.indexOf(c.status)+1];
+  c.status=next; c.tl.push([next,tiso()]);
+  save();
+  renderBoard(); openCard(id);
+}
+function askDel(cancel){
+  document.getElementById('delAsk').hidden=!cancel;
+  document.getElementById('delConfirm').hidden=cancel;
+}
+function delCard(id){
+  cur.cards=cur.cards.filter(c=>c.id!==id);
+  save();
+  document.getElementById('cardScrim').classList.remove('on');
+  renderBoard(); renderResults();
+}
+function markDone(id,verdict){
+  const c=cur.cards.find(x=>x.id===id);
+  c.result=verdict; c.status='done'; c.tl.push(['done',tiso()]);
+  if(!c.learning){ alert('Write the learning first - the verdict is only worth something with the lesson attached.'); c.result=null; c.status='learnings'; c.tl.pop(); return; }
+  if(verdict==='breakthrough') celebrate();
+  save(); learn(id);
+  renderBoard(); renderResults(); openCard(id);
+}
+
+/* ---------- analytics ---------- */
+const CH={'loser':'var(--ch-loser)','kpi winner':'var(--ch-kpi)','spend winner':'var(--ch-spend)','breakthrough':'var(--ch-break)'};
+let anMonth='all';
+const TYPEC={'Ideation':'#b38a04','Imitation':'#ff453a','Iteration':'#0a84ff'};
+const FMTC={'Video':'#0a84ff','Image':'#0e8043'};
+const AWC=['#9ec4f0','#6aa3e6','#3f7fd4','#2059b3','#123c8a'];
+const anLens={type:'all',format:'all',aw:'all'};
+function setLens(k,v){anLens[k]=v;renderAnalytics();}
+const tileHTML=(n,l)=>`<div class="tile"><div class="n">${n}</div><div class="l">${l}</div></div>`;
+function renderAnalytics(){
+  const el=document.getElementById('analyticsWrap'); if(!el||!cur)return;
+  const cards=cur.cards, done=cards.filter(c=>c.status==='done');
+  const breaks=done.filter(c=>c.result==='breakthrough');
+  const hit=done.length?Math.round(breaks.length/done.length*100)+'%':'-';
+  let h='<div class="tiles">'+tileHTML(done.length,'Batches completed')+tileHTML(breaks.length,'Breakthroughs')
+    +tileHTML(hit,'Hit rate')+tileHTML(cards.length-done.length,'Batches in progress')+'</div>';
+  h+='<div class="apanels">';
+
+  // finished per month (stacked columns by verdict)
+  const mm={};
+  done.forEach(c=>{const d=new Date(lastMove(c));const k=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');
+    mm[k]=mm[k]||{lab:d.toLocaleString('en',{month:'short'})+' '+d.getFullYear(),counts:{}};
+    mm[k].counts[c.result]=(mm[k].counts[c.result]||0)+1;});
+  let keys=Object.keys(mm).sort();
+  if(anMonth!=='all'&&!mm[anMonth]) anMonth='all';
+  const msel=`<select class="pick chev" style="width:130px;height:28px" onchange="anMonth=this.value;renderAnalytics()"><option value="all" ${anMonth==='all'?'selected':''}>All months</option>`+
+    keys.map(k=>`<option value="${k}" ${anMonth===k?'selected':''}>${mm[k].lab}</option>`).join('')+`</select>`;
+  h+=`<div class="apanel"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px"><h3 style="margin:0">Finished per month</h3>${msel}</div>`;
+  if(anMonth!=='all') keys=[anMonth];
+  if(!keys.length) h+='<div class="anote">Complete a batch and the numbers start here.</div>';
+  else{
+    const maxT=Math.max(...keys.map(k=>Object.values(mm[k].counts).reduce((a,b)=>a+b,0)));
+    const unit=112/maxT;
+    h+='<div class="mchart">'+keys.map(k=>{
+      const m=mm[k]; const tot=Object.values(m.counts).reduce((a,b)=>a+b,0);
+      return `<div class="mgroup"><span class="mtot">${tot}</span><div class="mcol">`+
+        VERDICTS.map(v=>m.counts[v]?`<div class="mseg" title="${v}: ${m.counts[v]}" style="height:${Math.max(m.counts[v]*unit,8)}px;background:${CH[v]}"></div>`:'').join('')+
+        `</div><span class="mlab">${m.lab}</span></div>`;
+    }).join('')+'</div>';
+    h+='<div class="legend">'+VERDICTS.map(v=>`<span><span class="ldot" style="background:${CH[v]}"></span>${VE[v]} ${v}</span>`).join('')+'</div>';
+  }
+  h+='</div>';
+
+  // pie panels: distribution of all batches, or of breakthroughs only
+  const piePanel=(title,key,items,get,cmap,emap)=>{
+    const lens=anLens[key];
+    const base=lens==='all'?cards:cards.filter(c=>c.result==='breakthrough');
+    const rows=items.map((it,i)=>({
+      label:(emap&&emap[it]?emap[it]+' ':'')+it,
+      n:base.filter(c=>get(c)===it).length,
+      color:cmap?cmap[it]:AWC[i]})).filter(r=>r.n);
+    const tot=rows.reduce((a,r)=>a+r.n,0);
+    const seg=`<div class="lens"><button class="${lens==='all'?'on':''}" onclick="setLens('${key}','all')">All ads</button><button class="${lens==='bt'?'on':''}" onclick="setLens('${key}','bt')">🏆 Breakthroughs</button></div>`;
+    let s=`<div class="apanel"><div class="phrow"><h3 style="margin:0">${title}</h3>${seg}</div>`;
+    if(!tot) return s+`<div class="anote">${lens==='all'?'Nothing here yet.':'No breakthroughs yet.'}</div></div>`;
+    let acc=0;
+    const stops=rows.map(r=>{const a0=acc/tot*360;acc+=r.n;const a1=acc/tot*360;return `${r.color} ${a0}deg ${a1}deg`}).join(', ');
+    s+=`<div class="pierow"><div class="pie" style="background:conic-gradient(${stops})"><span class="pietot">${tot}</span></div>
+      <div class="plegend">`+rows.map(r=>`<span><span class="ldot" style="background:${r.color}"></span>${r.label} <b>${r.n}</b> · ${Math.round(r.n/tot*100)}%</span>`).join('')+`</div></div></div>`;
+    return s;
+  };
+
+  // winners-within-tested panels
+  const hp=(title,items,get)=>{
+    let s=`<div class="apanel"><h3>${title}</h3>`;
+    const rows=items.map(([key,label])=>{
+      const t=done.filter(c=>get(c)===key), w=t.filter(c=>c.result==='breakthrough');
+      return {label,t:t.length,w:w.length};
+    }).filter(r=>r.t);
+    if(!rows.length) return s+'<div class="anote">Complete a batch and the numbers start here.</div></div>';
+    const maxT=Math.max(...rows.map(r=>r.t));
+    rows.forEach(r=>{
+      const rate=Math.round(r.w/r.t*100);
+      s+=`<div class="hrow"><div class="hmeta"><b>${r.label}</b><span>${r.w}/${r.t} breakthroughs · ${rate}%</span></div>
+        <div class="htrack"><div class="t" style="width:${r.t/maxT*100}%"></div><div class="w" style="width:${r.w/maxT*100}%"></div></div></div>`;
+    });
+    return s+'</div>';
+  };
+  h+=piePanel('By type','type',['Ideation','Imitation','Iteration'],c=>c.type,TYPEC,TE);
+  h+=piePanel('By format','format',['Video','Image'],c=>c.format,FMTC,FE);
+  h+=piePanel('By awareness','aw',AWS,c=>c.aw,null,null);
+  h+=hp('Breakthroughs by avatar',cur.avatars.map(a=>[a,a]),c=>c.avatar);
+
+  // avg days in stage
+  h+='<div class="apanel"><h3>Average days in stage</h3>';
+  const sd={};
+  cards.forEach(c=>{for(let i=0;i<c.tl.length-1;i++){const[st,d1]=c.tl[i];const d2=c.tl[i+1][1];
+    if(st==='idea'||st==='concepts'||st==='done')continue;(sd[st]=sd[st]||[]).push(days(d1,d2));}});
+  const stages=STAGES.filter(s=>sd[s]);
+  if(!stages.length) h+='<div class="anote">Not enough data yet.</div>';
+  else{
+    const maxA=Math.max(...stages.map(s=>sd[s].reduce((a,b)=>a+b,0)/sd[s].length));
+    stages.forEach(s=>{
+      const avg=sd[s].reduce((a,b)=>a+b,0)/sd[s].length;
+      h+=`<div class="hrow"><div class="hmeta"><b><span class="ldot" style="background:${STC[s]};margin-right:0"></span>${s}</b><span>${avg.toFixed(1)}d avg</span></div>
+        <div class="htrack"><div class="t" style="width:${avg/maxA*100}%"></div></div></div>`;
+    });
+  }
+  h+='</div>';
+
+  h+='</div>';
+  el.innerHTML=h;
+}
+
+function toggleTheme(){
+  const el=document.documentElement;
+  if(el.getAttribute('data-theme')==='light'){el.removeAttribute('data-theme');document.getElementById('themeBtn').textContent='☀︎';}
+  else{el.setAttribute('data-theme','light');document.getElementById('themeBtn').textContent='☾';}
+}
+refresh();
+</script>
+</body>
+</html>
