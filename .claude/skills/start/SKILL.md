@@ -14,7 +14,7 @@ If this workspace was already onboarded (CLAUDE.md has a filled "Who runs this w
 Before any questions, one short message showing exactly what this onboarding is:
 
 ```
-PHASE 1  The interview     ~20 min · 12 questions · talk, don't type
+PHASE 1  The interview     ~20 min · 11 questions · talk, don't type
 PHASE 2  Write it in       the workspace learns who you are
 PHASE 3  Tools, verified   ~10 min · set up + TEST your research tools
 PHASE 4  Hand-off          your first brand
@@ -36,14 +36,13 @@ Ask ONE question at a time. WAIT for every answer. Never answer for them. React 
 4. What are you here to do - make ads for brands on the Ad Bounty program, for your own brand, or for a client?
 5. What platforms and tools do you use every day? (Ad platforms, design tools, comms tools, AI tools, project management, spreadsheets - anything you have open on a regular basis.)
 6. What do you actually produce - ad creatives, briefs, landing pages, reports, scripts, strategies? And roughly how many of each in a typical week?
-7. Walk me through your actual workflow - how do you go from "task assigned" to "task done"? Where does the work start, what tools touch it, who reviews it, where does it ship?
-8. What's the repetitive stuff you do over and over? (These are the candidates for skills and automations later - capture them well.)
-9. What's the hard stuff - what slows you down, what do you procrastinate on, where do you get stuck?
-10. What's your zone of expertise - the specific area where you're strongest, the thing people come to you for?
-11. What does winning look like for you in the next 90 days - and what's the bigger thing you're working toward this year and beyond? (Honest, not impressive.)
-12. Anything else Claude should know about you or how to talk to you? (Tone, language, pet peeves, what motivates you.)
+7. What's the repetitive stuff you do over and over? (These are the candidates for skills and automations later - capture them well.)
+8. What's the hard stuff - what slows you down, what do you procrastinate on, where do you get stuck?
+9. What's your zone of expertise - the specific area where you're strongest, the thing people come to you for?
+10. What does winning look like for you in the next 90 days - and what's the bigger thing you're working toward this year and beyond? (Honest, not impressive.)
+11. Anything else Claude should know about you or how to talk to you? (Tone, language, pet peeves, what motivates you.)
 
-**Adapt to who they are:** if the early answers show a complete beginner with no work routine yet, don't interrogate a workflow that doesn't exist - compress questions 5-10 into what their days actually look like, what they've made before, and where they get stuck, then move on. The interview should feel like being understood, never like filling out a form.
+**Adapt to who they are:** if the early answers show a complete beginner with no work routine yet, don't interrogate work habits that don't exist - compress questions 5-9 into what their days actually look like, what they've made before, and where they get stuck, then move on. The interview should feel like being understood, never like filling out a form.
 
 ## Phase 2 - Write it in
 
