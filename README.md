@@ -6,11 +6,9 @@ A ready-to-run Claude Code workspace for doing creative strategy - researching b
 
 1. Install [VS Code](https://code.visualstudio.com/) and [Claude Code](https://claude.com/claude-code).
 2. Click **Use this template** on GitHub (or clone this repo), then open the folder in VS Code.
-3. Open Claude Code inside that folder.
-4. Read `MANIFESTO.md`, then follow `SETUP.md` to connect the tools you need.
-5. Run `/new-brand` to onboard your first brand.
+3. Open Claude Code inside that folder and type **`start`**.
 
-That is it. See `CLAUDE.md` for how everything works.
+That is it. The onboarding interviews you, personalizes the workspace, sets up and verifies your tools, and takes you to your first brand. See `CLAUDE.md` for how everything works, and read `MANIFESTO.md` - it is how we make ads.
 
 ---
 

@@ -4,6 +4,8 @@ This is your creative strategy workspace. It is where you research brands, come 
 
 You run this inside Claude Code (in VS Code). To use a skill, type its slash command (like `/new-brand`). Claude reads the instructions in that skill and executes them.
 
+**First time here? Just type `start`.** It interviews you so this workspace knows who it belongs to, sets up your tools one by one, and takes you to your first brand.
+
 ## How we work here (read this first)
 
 **1. The manifesto is law.** Before you make a single ad, read [MANIFESTO.md](MANIFESTO.md). It is how we make ads - the principles from Eugene Schwartz and years in the trenches. Every skill in here reads it first. When in doubt, the manifesto wins.
@@ -29,6 +31,7 @@ The pattern also scales: if you ever add a whole new area of work to this worksp
 | Where | What |
 |-------|------|
 | [MANIFESTO.md](MANIFESTO.md) | How we make ads. The source of truth. Read first. |
+| `about-me.md` | Who runs this workspace - created by `/start`, read whenever personalization matters. |
 | [SETUP.md](SETUP.md) | The connectors, APIs, and MCPs to set up, plus optional upgrades. |
 | `brands/` | One folder per brand you work with. `/new-brand` creates them from `_TEMPLATE`. |
 | `growth-guide-app/` | The visual growth guide (kanban, idea wall, results, analytics). Start it with `node growth-guide-app/server.js` - it reads and writes the same markdown files, so the app and the files never disagree. |
@@ -39,6 +42,7 @@ The pattern also scales: if you ever add a whole new area of work to this worksp
 
 | Skill | What it does |
 |-------|-------------|
+| `/start` | First-run onboarding: interviews you, personalizes this file around you, sets up and verifies your tools, then hands you to `/new-brand`. |
 | `/new-brand` | The big one. Runs the whole initial-research pipeline end to end: pull in everything -> research -> avatars -> desires -> growth guide. Done only when the growth guide is built. It runs the four skills below in order; you can also run any of them on their own. |
 | `/market-research` | Generate the market research document for a brand from its website + everything in `research/`. |
 | `/avatars` | Identify the brand's avatars from the research and write the avatar doc. |
