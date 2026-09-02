@@ -177,6 +177,54 @@ function loadBrand(slug) {
   return brand;
 }
 
+/* ---------- the library: resources/ served read-only ---------- */
+const RESOURCES_DIR = path.join(ROOT, 'resources');
+const LIB_GROUPS = [
+  { group: 'Playbooks', e: '📖', dir: '.' },
+  { group: 'Marketing Fundamentals', e: '🧭', dir: 'marketing-fundamentals' },
+  { group: 'Copywriting', e: '✍️', dir: 'copywriting' },
+  { group: 'Breakthrough Advertising', e: '📕', dir: 'breakthrough-advertising' },
+  { group: 'Winning Ads', e: '🏆', dir: 'winning-ads' },
+  { group: 'Prompts', e: '⚡', dir: 'prompts' },
+];
+const SKIP_DOCS = new Set(['README.md', 'CONTEXT.md']);
+
+function docTitle(md, fallback) {
+  const m = /^#\s+(.+)$/m.exec(md);
+  return (m ? m[1] : fallback.replace(/[_-]/g, ' ').replace(/\.md$/, '')).replace(/\*\*/g, '').trim();
+}
+
+function listLibrary() {
+  const out = [];
+  for (const g of LIB_GROUPS) {
+    const dir = path.join(RESOURCES_DIR, g.dir);
+    let files = [];
+    try { files = fs.readdirSync(dir, { withFileTypes: true }); } catch { continue; }
+    const docs = files
+      .filter(f => f.isFile() && f.name.endsWith('.md') && !SKIP_DOCS.has(f.name))
+      .map(f => {
+        const rel = g.dir === '.' ? f.name : g.dir + '/' + f.name;
+        const p = path.join(dir, f.name);
+        let title = f.name, updated = todayIso();
+        try {
+          const st = fs.statSync(p);
+          updated = st.mtime.toISOString().slice(0, 10);
+          title = docTitle(fs.readFileSync(p, 'utf8'), f.name);
+        } catch {}
+        return { id: rel, title, updated };
+      })
+      .sort((a, b) => a.title.localeCompare(b.title));
+    if (docs.length) out.push({ group: g.group, e: g.e, docs });
+  }
+  return out;
+}
+
+function readLibraryDoc(id) {
+  const p = path.resolve(RESOURCES_DIR, String(id));
+  if (!p.startsWith(RESOURCES_DIR + path.sep) || !p.endsWith('.md')) return null;
+  try { return fs.readFileSync(p, 'utf8'); } catch { return null; }
+}
+
 function listBrands() {
   let entries = [];
   try { entries = fs.readdirSync(BRANDS_DIR, { withFileTypes: true }); } catch {}
@@ -221,6 +269,11 @@ const server = http.createServer((req, res) => {
       return;
     }
     if (req.method === 'GET' && url.pathname === '/api/brands') return json(res, 200, listBrands());
+    if (req.method === 'GET' && url.pathname === '/api/library') return json(res, 200, listLibrary());
+    if (req.method === 'GET' && url.pathname === '/api/library/doc') {
+      const md = readLibraryDoc(url.searchParams.get('id') || '');
+      return md === null ? json(res, 404, { error: 'no such doc' }) : json(res, 200, { md });
+    }
     if (req.method === 'POST') {
       let body = '';
       req.on('data', ch => { body += ch; if (body.length > 4e6) req.destroy(); });

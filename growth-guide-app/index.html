@@ -197,6 +197,16 @@ select.pick{background-color:rgba(120,120,128,.14);border:0;border-radius:9px;he
 .prose blockquote{border-left:3px solid var(--hair);margin:0 0 12px;padding:2px 0 2px 14px;color:var(--text-3);font-style:italic}
 .prose b{color:var(--text);font-weight:640}
 .prose hr{border:none;border-top:1px solid var(--hair);margin:18px 0}
+.prose a{color:var(--accent);text-decoration:none}
+.prose a:hover{text-decoration:underline}
+.prose code{background:var(--surface-2);border:1px solid var(--hair-2);border-radius:5px;padding:1px 5px;font-size:12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.prose pre{background:var(--surface-2);border:1px solid var(--hair-2);border-radius:9px;padding:13px 15px;margin:0 0 12px;overflow-x:auto;font-size:12px;line-height:1.55;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--text-2)}
+.prose .tblwrap{overflow-x:auto;margin:0 0 14px}
+.prose table{border-collapse:collapse;font-size:12.8px;min-width:100%}
+.prose th,.prose td{border:1px solid var(--hair);padding:7px 10px;text-align:left;vertical-align:top}
+.prose th{color:var(--text);font-weight:620;background:var(--surface-2)}
+.liblink{color:var(--accent);font-weight:600;cursor:pointer}
+.liblink:hover{text-decoration:underline}
 .delbtn{display:block;width:100%;margin-top:10px;padding:10px;border-radius:10px;font-size:13px;font-weight:590;color:var(--red);background:color-mix(in srgb,var(--red) 10%,transparent);transition:all .18s var(--k);text-align:center}
 .delbtn:hover{background:color-mix(in srgb,var(--red) 16%,transparent)}
 .delconfirm{margin-top:10px;background:color-mix(in srgb,var(--red) 8%,transparent);border-radius:10px;padding:13px 15px;font-size:12.5px;color:var(--text-2);text-align:center}
@@ -306,6 +316,7 @@ textarea.mi{min-height:72px;resize:vertical;line-height:1.55}
       <button id="tab-board" onclick="setTab('board')">Board</button>
       <button id="tab-results" onclick="setTab('results')">Results</button>
       <button id="tab-analytics" onclick="setTab('analytics')">Analytics</button>
+      <button id="tab-library" onclick="setTab('library')">Library</button>
     </div>
     <div class="spacer"></div>
   </div></div>
@@ -339,6 +350,12 @@ textarea.mi{min-height:72px;resize:vertical;line-height:1.55}
     <div class="view" id="analyticsView">
       <h2 class="ptitle" style="margin-bottom:14px"><span class="e">📈</span>Analytics</h2>
       <div id="analyticsWrap"></div>
+    </div>
+    <div class="view" id="libraryView">
+      <div class="phead"><h2 class="ptitle"><span class="e">📚</span>Library</h2></div>
+      <div class="wb-note">The knowledge base behind every ad - the playbooks, the fundamentals, the copywriting craft, real winning-ad case studies. The same files as <b>resources/</b> in the workspace.</div>
+      <div id="libGridWrap"></div>
+      <div id="libReader" class="docreader" hidden></div>
     </div>
   </main>
 </div>
@@ -465,7 +482,7 @@ function openBrand(slug){
   document.getElementById('rf_avatar').innerHTML='<option>All avatars</option>'+cur.avatars.map(a=>`<option>${a}</option>`).join('');
   document.getElementById('rf_desire').innerHTML='<option>All desires</option>'+cur.desires.map(d=>`<option>${d}</option>`).join('');
   ['rf_aw','rf_type','rf_format'].forEach(id=>document.getElementById(id).selectedIndex=0);
-  setTab('docs'); renderDocs(); renderWall(); renderBoard(); renderResults();
+  setTab('docs'); renderDocs(); renderWall(); renderBoard(); renderResults(); loadLibrary();
   window.scrollTo(0,0);
 }
 
@@ -478,12 +495,33 @@ const DOCS=[
 ];
 function md(src){
   const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
-  const inline=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
-  let out='',list=false,para=[];
+  const inline=s=>{
+    let t=esc(s);
+    t=t.replace(/`([^`]+)`/g,'<code>$1</code>');
+    t=t.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+    t=t.replace(/(^|[^*])\*([^*\s][^*]*)\*(?!\*)/g,'$1<i>$2</i>');
+    t=t.replace(/\[([^\]]+)\]\(([^)]+)\)/g,(m,txt,href)=>/^https?:/.test(href)?`<a href="${href}" target="_blank" rel="noopener">${txt}</a>`:txt);
+    return t;
+  };
+  let out='',list=false,para=[],tbl=null,pre=false,preLines=[];
   const flush=()=>{if(para.length){out+='<p>'+para.join(' ')+'</p>';para=[]}};
   const endList=()=>{if(list){out+='</ul>';list=false}};
+  const endTbl=()=>{if(tbl){out+='<div class="tblwrap"><table><thead><tr>'+tbl.head.map(c=>'<th>'+c+'</th>').join('')+'</tr></thead><tbody>'+tbl.rows.map(r=>'<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';tbl=null}};
   src.trim().split('\n').forEach(l=>{
     const t=l.trim();
+    if(t.startsWith('```')){flush();endList();endTbl();
+      if(pre){out+='<pre>'+preLines.map(esc).join('\n')+'</pre>';pre=false;preLines=[];}
+      else pre=true;
+      return}
+    if(pre){preLines.push(l);return}
+    if(t.startsWith('|')&&t.endsWith('|')&&t.length>1){
+      flush();endList();
+      if(/^\|[-:\s|]+\|$/.test(t)){return}
+      const cells=t.slice(1,-1).split('|').map(c=>inline(c.trim()));
+      if(!tbl)tbl={head:cells,rows:[]};
+      else tbl.rows.push(cells);
+      return}
+    endTbl();
     if(!t){flush();endList();return}
     if(t.startsWith('### ')){flush();endList();out+='<h3>'+inline(t.slice(4))+'</h3>';return}
     if(t.startsWith('## ')){flush();endList();out+='<h2>'+inline(t.slice(3))+'</h2>';return}
@@ -493,7 +531,8 @@ function md(src){
     if(t.startsWith('- ')){flush();if(!list){out+='<ul>';list=true}out+='<li>'+inline(t.slice(2))+'</li>';return}
     para.push(inline(t));
   });
-  flush();endList();
+  flush();endList();endTbl();
+  if(pre)out+='<pre>'+preLines.map(esc).join('\n')+'</pre>';
   return out;
 }
 function renderDocs(){
@@ -527,8 +566,52 @@ function goHome(){
   document.getElementById('home').classList.add('on');
   renderHome();
 }
+
+/* ---------- library tab: the resources/ knowledge base ---------- */
+let LIB=[];
+async function loadLibrary(){ try{ LIB=await api('/api/library'); }catch(e){ LIB=[]; } renderLibrary(); }
+async function getLibDoc(gi,di){
+  const d=LIB[gi].docs[di];
+  if(d.md==null) d.md=(await api('/api/library/doc?id='+encodeURIComponent(d.id))).md;
+  return d;
+}
+function renderLibrary(){
+  const w=document.getElementById('libGridWrap');
+  if(!LIB.length){ w.innerHTML='<div class="anote" style="padding:22px;background:var(--surface);border-radius:var(--r);box-shadow:var(--shadow)">No library found - the app looks for the <b>resources/</b> folder in the workspace root.</div>'; closeLib(); return; }
+  w.innerHTML=LIB.map((g,gi)=>`<div class="lbl" style="margin-top:${gi?26:0}px">${g.group}</div><div class="docgrid">`+
+    g.docs.map((d,di)=>`<button class="doccard" onclick="openLibDoc(${gi},${di})">
+      <span class="dice">${g.e}</span>
+      <span style="min-width:0"><span class="dcn">${d.title}</span><div class="dcp">resources/${d.id}</div></span>
+      <span class="arrow">›</span></button>`).join('')+`</div>`).join('');
+  closeLib();
+}
+async function openLibDoc(gi,di){
+  const g=LIB[gi]; if(!g)return;
+  const d=await getLibDoc(gi,di);
+  document.getElementById('libGridWrap').hidden=true;
+  const r=document.getElementById('libReader'); r.hidden=false;
+  r.innerHTML=`<button class="docback" onclick="closeLib()">‹ All of the library</button>
+    <div class="prose">
+      <div class="dochead"><span class="dice">${g.e}</span><div><div class="dcn" style="font-size:19px">${d.title}</div><div class="dcp">resources/${d.id}</div></div></div>
+      ${md(d.md)}
+    </div>`;
+  window.scrollTo(0,0);
+}
+function closeLib(){
+  document.getElementById('libGridWrap').hidden=false;
+  document.getElementById('libReader').hidden=true;
+}
+function openLib(id){
+  document.getElementById('cardScrim').classList.remove('on');
+  setTab('library');
+  for(let gi=0;gi<LIB.length;gi++){
+    const di=LIB[gi].docs.findIndex(d=>d.id===id);
+    if(di>-1){ openLibDoc(gi,di); return; }
+  }
+  closeLib(); window.scrollTo(0,0);
+}
 function setTab(t){
-  ['docs','ideas','board','results','analytics'].forEach(x=>{
+  ['docs','ideas','board','results','analytics','library'].forEach(x=>{
     document.getElementById(x+'View').classList.toggle('on',x===t);
     document.getElementById('tab-'+x).classList.toggle('on',x===t);
   });
@@ -732,10 +815,13 @@ function openCard(id){
   if(c.status==='learnings'){
     h+=`<div class="verdicts"><div class="vlbl">Pull the learning, then mark the verdict:</div><div class="vgrid">`+
       VERDICTS.map(v=>`<button class="vbtn" style="color:${RSC[v]};background:${tint(RSC[v],14)}" onclick="markDone('${c.id}','${v}')">${VE[v]} ${v}</button>`).join('')+
-      `</div></div>`;
+      `</div><div class="anote" style="margin-top:10px">Not sure which verdict, or why the numbers look like this? <span class="liblink" onclick="openLib('learnings-playbook.md')">📖 Learnings playbook</span></div></div>`;
   } else if(c.status!=='done'){
     const ni=STAGES.indexOf(c.status);
     h+=`<button class="movebtn" onclick="moveCard('${c.id}')">Move to ${STAGES[ni+1]} →</button>`;
+  }
+  if(c.status==='done'&&c.result){
+    h+=`<div class="anote" style="margin-top:14px">What to build after a ${c.result}: <span class="liblink" onclick="openLib('iteration-playbook.md')">🔄 Iteration playbook</span></div>`;
   }
   h+=`<button class="delbtn" id="delAsk" onclick="askDel(false)">Delete concept</button>
     <div class="delconfirm" id="delConfirm" hidden>
