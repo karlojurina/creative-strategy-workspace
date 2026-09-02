@@ -9,7 +9,7 @@ Write the first-draft copy for a static (image) concept. The draft is a starting
 
 ## Workflow
 
-1. Read `MANIFESTO.md`. Ask which brand and which concept card if it is not obvious. Then load the full picture: the brand's `CONTEXT.md`, `research/market-research.md`, `research/avatars.md`, `research/desires.md`, `learnings/learnings.md`, and the concept's card in `growth-guide.md`. Past learnings shape this copy - that is the compounding.
+1. Read `MANIFESTO.md`. Ask which brand and which concept card if it is not obvious. Then load the full picture: the brand's `CONTEXT.md`, `research/market-research.md`, `research/avatars.md`, `research/desires.md`, `research/voice_of_customer.md` (the phrase bank - on statics a customer verbatim ships AS-IS, typed language on a typed surface; metaphors and pain phrases from the bank are pre-made headline material), `learnings/learnings.md`, and the concept's card in `growth-guide.md`. Past learnings shape this copy - that is the compounding.
 2. Pull the inputs from the card: avatar, desire, awareness level, type, and the memo (WHAT / WHY / HOW). If the memo does not already answer it, ask the user: **"What's the core idea behind this static ad concept?"** - the pain point or desire to address, the feature or benefit to highlight, the emotional response to evoke, any visual elements they're considering, and the action they want viewers to take. One question at a time, and WAIT for their answers. Do not invent them.
 3. Write the ad using the method below.
 4. Save the draft to `brands/<slug>/copy/<card-id>-<concept-slug>.md` and note the file path on the concept card (next to **Brief:** until the real brief exists).

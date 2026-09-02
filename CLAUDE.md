@@ -64,6 +64,9 @@ brands/<brand>/
 ├── CONTEXT.md        the brand basics (from /new-brand)
 ├── research/
 │   ├── market-research.md · avatars.md · desires.md   the synthesis docs (the canon)
+│   ├── voice_of_customer.md   the phrase bank: verbatim customer language by
+│   │                 category (pains, outcomes, objections, jargon...) - every
+│   │                 copy skill drafts from it
 │   ├── raw/          the append-forever layer: reviews, ad comments (ours vs
 │   │                 competitors - different lenses), reddit, social, surveys
 │   └── pulses/       the weekly /research-pulse briefs, week by week

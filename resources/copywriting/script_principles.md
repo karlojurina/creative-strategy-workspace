@@ -39,3 +39,5 @@ Not a template - a sequence of jobs. Every line earns the next one.
 ## The bar
 
 Read the finished script one last time as the customer - a stranger, mid-scroll, zero patience. At every line ask: would I keep reading? Do I believe this yet? Was there a question in my head this line just answered? If the answer wobbles anywhere, the assembly isn't done.
+
+Then read it OUT LOUD. Structure can be perfect and the script still dies if it sounds written instead of spoken - the read-aloud test and the written-copy tells live in [spoken_voice.md](spoken_voice.md), and every video script passes them before it ships.

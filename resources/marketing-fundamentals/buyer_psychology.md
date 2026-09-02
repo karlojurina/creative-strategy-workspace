@@ -27,6 +27,8 @@ Every product touches several desires; grade them before you pick:
 
 The job: **find the strongest, most dominant desire behind the product.** Every product can do multiple things, but only ONE dominant desire scales it to big numbers. You find it by testing different ads, not by guessing in a document.
 
+A useful checklist when mapping a product's desires (Drew Eric Whitman's list from *Cashvertising* - the eight primal drives everyone carries): survival & health, protection of loved ones, freedom from fear and pain, comfort, food & pleasure, relationships & companionship, winning & status, social approval. Plus the learned ones that show up constantly in e-commerce: convenience, dependability, cleanliness, beauty & style, curiosity, bargains, scarcity, values, individuality. Run the product down the list and see which drives light up - then grade those with the three dimensions above.
+
 ## Law #2: Every product is two products
 
 - **The physical product** - features, specs, ingredients, the object itself.
