@@ -8,8 +8,9 @@ The shared knowledge every skill and every brand pulls from. Nothing in here is 
 |-------|------|--------------|
 | [learnings-playbook.md](learnings-playbook.md) | The four verdicts (IDGAF definitions), the five scenarios after an ad goes live, learnings practices, the why-is-this-working questions, the pre-brief checklist | An ad finishes testing · before writing any learning · before submitting a brief |
 | [iteration-playbook.md](iteration-playbook.md) | The learning & iteration process, per-verdict fixes, the 33-move winner menu | A card gets its verdict and you decide what to build next |
-| `breakthrough-advertising/` | The Eugene Schwartz reference | Writing copy · questioning an awareness or sophistication call |
-| `copywriting/` | The copywriting reference | Writing or reviewing any copy |
+| `breakthrough-advertising/` | The Eugene Schwartz reference: the full book summary (awareness, sophistication, the 7 techniques, 38 headline ways) + notes from Eugene's own talk. Drop your own PDF of the book here (git-ignored) for full-text deep dives | Writing copy · questioning an awareness or sophistication call |
+| `copywriting/` | The craft of writing scripts: order of operations, the persuasive-script structure (educate before the product), rules of thumb (Hemingway grade 6, text-on-screen, appeal modes) | Writing or reviewing any copy |
+| `winning-ads/` | Real winning-ad case studies, broken down start to finish: the FlowPouch story (research -> winner in 16 days -> iteration), CarePod, Dog Friendly Co., Metaglow losing-to-winning | Before your first script for a brand · an ad shows potential and dies · you need a mechanism play or an unaware ad · calibrating what "every line has a purpose" means |
 | `prompts/` | Grab-and-use prompts: comment-miner, ideas-from-reviews, hook-ideas | Mining an ad's comment section · generating idea sparks from reviews |
 
 ## The rule

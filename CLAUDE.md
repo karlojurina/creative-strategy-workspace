@@ -35,7 +35,7 @@ The pattern also scales: if you ever add a whole new area of work to this worksp
 | [SETUP.md](SETUP.md) | The connectors, APIs, and MCPs to set up, plus optional upgrades. |
 | `brands/` | One folder per brand you work with. `/new-brand` creates them from `_TEMPLATE`. |
 | `growth-guide-app/` | The visual growth guide (kanban, idea wall, results, analytics). Start it with `node growth-guide-app/server.js` - it reads and writes the same markdown files, so the app and the files never disagree. |
-| `resources/` | The knowledge base every skill pulls from - Breakthrough Advertising, copywriting, the learnings + iteration playbooks, plus a few grab-and-use prompts (comment miner, idea generators). |
+| `resources/` | The knowledge base every skill pulls from - Breakthrough Advertising, copywriting, real winning-ad case studies, the learnings + iteration playbooks, plus a few grab-and-use prompts (comment miner, idea generators). |
 | `.claude/skills/` | Your tools. See below. |
 
 ## Your skills
