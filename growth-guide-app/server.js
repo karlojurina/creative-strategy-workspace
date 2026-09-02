@@ -179,13 +179,12 @@ function loadBrand(slug) {
 
 /* ---------- the library: resources/ served read-only ---------- */
 const RESOURCES_DIR = path.join(ROOT, 'resources');
+// The app surfaces the reference layer students reach for mid-work; the rest
+// of resources/ (case studies, BA, prompts) stays Claude-side by design.
 const LIB_GROUPS = [
   { group: 'Playbooks', e: '📖', dir: '.' },
   { group: 'Marketing Fundamentals', e: '🧭', dir: 'marketing-fundamentals' },
   { group: 'Copywriting', e: '✍️', dir: 'copywriting' },
-  { group: 'Breakthrough Advertising', e: '📕', dir: 'breakthrough-advertising' },
-  { group: 'Winning Ads', e: '🏆', dir: 'winning-ads' },
-  { group: 'Prompts', e: '⚡', dir: 'prompts' },
 ];
 const SKIP_DOCS = new Set(['README.md', 'CONTEXT.md']);
 

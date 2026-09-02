@@ -316,16 +316,23 @@ textarea.mi{min-height:72px;resize:vertical;line-height:1.55}
       <button id="tab-board" onclick="setTab('board')">Board</button>
       <button id="tab-results" onclick="setTab('results')">Results</button>
       <button id="tab-analytics" onclick="setTab('analytics')">Analytics</button>
-      <button id="tab-library" onclick="setTab('library')">Library</button>
     </div>
     <div class="spacer"></div>
   </div></div>
   <main>
     <div class="view on" id="docsView">
       <div class="phead"><h2 class="ptitle"><span class="e">🏠</span>Home</h2></div>
-      <div class="wb-note">The foundational documents behind this brand - pulled straight from the .md files in the workspace.</div>
+      <div id="brandDocsHead">
+        <div class="wb-note">The foundational documents behind this brand - pulled straight from the .md files in the workspace.</div>
+      </div>
       <div id="docGridWrap"><div class="docgrid" id="docgrid"></div></div>
       <div id="docReader" class="docreader" hidden></div>
+      <div id="libSection">
+        <div class="lbl" style="margin-top:36px">The library</div>
+        <div class="wb-note">The shared knowledge base behind every ad - the playbooks, the fundamentals, the copywriting craft. The same files as <b>resources/</b> in the workspace.</div>
+        <div id="libGridWrap"></div>
+      </div>
+      <div id="libReader" class="docreader" hidden></div>
     </div>
     <div class="view" id="ideasView">
       <div class="phead"><h2 class="ptitle"><span class="e">📥</span>Idea Bank</h2></div>
@@ -350,12 +357,6 @@ textarea.mi{min-height:72px;resize:vertical;line-height:1.55}
     <div class="view" id="analyticsView">
       <h2 class="ptitle" style="margin-bottom:14px"><span class="e">📈</span>Analytics</h2>
       <div id="analyticsWrap"></div>
-    </div>
-    <div class="view" id="libraryView">
-      <div class="phead"><h2 class="ptitle"><span class="e">📚</span>Library</h2></div>
-      <div class="wb-note">The knowledge base behind every ad - the playbooks, the fundamentals, the copywriting craft, real winning-ad case studies. The same files as <b>resources/</b> in the workspace.</div>
-      <div id="libGridWrap"></div>
-      <div id="libReader" class="docreader" hidden></div>
     </div>
   </main>
 </div>
@@ -548,6 +549,8 @@ function renderDocs(){
 function openDoc(k){
   const [,e,n,p]=DOCS.find(x=>x[0]===k), d=cur.docs[k];
   document.getElementById('docGridWrap').hidden=true;
+  document.getElementById('libSection').hidden=true;
+  document.getElementById('libReader').hidden=true;
   const r=document.getElementById('docReader'); r.hidden=false;
   r.innerHTML=`<button class="docback" onclick="closeDoc()">‹ All documents</button>
     <div class="prose">
@@ -558,6 +561,7 @@ function openDoc(k){
 }
 function closeDoc(){
   document.getElementById('docGridWrap').hidden=false;
+  document.getElementById('libSection').hidden=false;
   document.getElementById('docReader').hidden=true;
 }
 function goHome(){
@@ -578,7 +582,7 @@ async function getLibDoc(gi,di){
 function renderLibrary(){
   const w=document.getElementById('libGridWrap');
   if(!LIB.length){ w.innerHTML='<div class="anote" style="padding:22px;background:var(--surface);border-radius:var(--r);box-shadow:var(--shadow)">No library found - the app looks for the <b>resources/</b> folder in the workspace root.</div>'; closeLib(); return; }
-  w.innerHTML=LIB.map((g,gi)=>`<div class="lbl" style="margin-top:${gi?26:0}px">${g.group}</div><div class="docgrid">`+
+  w.innerHTML=LIB.map((g,gi)=>`<div class="lbl" style="margin-top:${gi?26:0}px;font-size:12px;color:var(--text-3)">${g.group}</div><div class="docgrid">`+
     g.docs.map((d,di)=>`<button class="doccard" onclick="openLibDoc(${gi},${di})">
       <span class="dice">${g.e}</span>
       <span style="min-width:0"><span class="dcn">${d.title}</span><div class="dcp">resources/${d.id}</div></span>
@@ -588,9 +592,11 @@ function renderLibrary(){
 async function openLibDoc(gi,di){
   const g=LIB[gi]; if(!g)return;
   const d=await getLibDoc(gi,di);
-  document.getElementById('libGridWrap').hidden=true;
+  document.getElementById('docGridWrap').hidden=true;
+  document.getElementById('libSection').hidden=true;
+  document.getElementById('docReader').hidden=true;
   const r=document.getElementById('libReader'); r.hidden=false;
-  r.innerHTML=`<button class="docback" onclick="closeLib()">‹ All of the library</button>
+  r.innerHTML=`<button class="docback" onclick="closeLib()">‹ Home</button>
     <div class="prose">
       <div class="dochead"><span class="dice">${g.e}</span><div><div class="dcn" style="font-size:19px">${d.title}</div><div class="dcp">resources/${d.id}</div></div></div>
       ${md(d.md)}
@@ -598,12 +604,13 @@ async function openLibDoc(gi,di){
   window.scrollTo(0,0);
 }
 function closeLib(){
-  document.getElementById('libGridWrap').hidden=false;
+  document.getElementById('docGridWrap').hidden=false;
+  document.getElementById('libSection').hidden=false;
   document.getElementById('libReader').hidden=true;
 }
 function openLib(id){
   document.getElementById('cardScrim').classList.remove('on');
-  setTab('library');
+  setTab('docs');
   for(let gi=0;gi<LIB.length;gi++){
     const di=LIB[gi].docs.findIndex(d=>d.id===id);
     if(di>-1){ openLibDoc(gi,di); return; }
@@ -611,7 +618,7 @@ function openLib(id){
   closeLib(); window.scrollTo(0,0);
 }
 function setTab(t){
-  ['docs','ideas','board','results','analytics','library'].forEach(x=>{
+  ['docs','ideas','board','results','analytics'].forEach(x=>{
     document.getElementById(x+'View').classList.toggle('on',x===t);
     document.getElementById('tab-'+x).classList.toggle('on',x===t);
   });
