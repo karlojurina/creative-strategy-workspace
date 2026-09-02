@@ -66,8 +66,7 @@ brands/<brand>/
 │   ├── market-research.md · avatars.md · desires.md   the synthesis docs (the canon)
 │   ├── raw/          the append-forever layer: reviews, ad comments (ours vs
 │   │                 competitors - different lenses), reddit, social, surveys
-│   ├── pulses/       the weekly /research-pulse briefs, week by week
-│   └── teardowns/    /watch-video analysis docs
+│   └── pulses/       the weekly /research-pulse briefs, week by week
 ├── content/          the brand's existing footage and assets
 ├── ads/              finished ads you have made (for learnings)
 ├── learnings/        the living learnings knowledge base + call transcripts (compounds over time)
