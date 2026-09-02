@@ -24,7 +24,7 @@
 | Where | What |
 |-------|------|
 | [growth-guide.md](growth-guide.md) | The idea bank + concept pipeline. The heartbeat of the brand. |
-| `research/` | market-research.md, avatars.md, desires.md, plus everything raw (reviews, surveys, mined data) |
+| `research/` | The synthesis docs (market-research.md, avatars.md, desires.md) + `raw/` (mined material by source - see its README for the ours-vs-competitors lenses) + `pulses/` (weekly briefs) + `teardowns/` |
 | `learnings/` | learnings.md, the living knowledge base + call transcripts. Read before every new concept. |
 | `content/` | The brand's footage and assets |
 | `scripts/` · `copy/` · `briefs/` | Video scripts, static copy, assembled briefs |

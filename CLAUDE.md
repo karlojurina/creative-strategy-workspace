@@ -12,7 +12,7 @@ You run this inside Claude Code (in VS Code). To use a skill, type its slash com
 
 **2. You do the thinking. AI does the grunt work.** This workspace will never make you a marketer on its own. It hands you building blocks - research, claims, drafts - and you assemble the ad yourself. Whenever you have an idea, you have to explain it: what it is, why you want to do it, and how you would execute it. If you cannot explain it, it is not ready. Never ship a raw AI draft - take it out, assemble it, look at it with fresh eyes. The most prepared, most knowledgeable marketer wins, and that has to be you, not the AI.
 
-**3. Close the loop every session.** At the end of a working session, look for one thing that could make this workspace or a skill better, and improve it. Every session, the workspace should get a little sharper. You just approve the change. This is the exact same feedback loop you run on your ads - here you run it on your tools. And whenever you start working on a brand, check its growth guide: any concept sitting in TESTING for 5 to 7+ days gets moved to LEARNINGS (stamp the date), and you prompt the user to pull the learnings.
+**3. Close the loop every session.** At the end of a working session, look for one thing that could make this workspace or a skill better, and improve it. Every session, the workspace should get a little sharper. You just approve the change. This is the exact same feedback loop you run on your ads - here you run it on your tools. And whenever you start working on a brand, run two checks: (a) the growth guide - any concept sitting in TESTING for 5 to 7+ days gets moved to LEARNINGS (stamp the date), and you prompt the user to pull the learnings; (b) the pulse - if the brand's newest `research/pulses/` brief is 7+ days old (or missing), offer to run `/research-pulse`.
 
 **4. The maps stay true.** The workspace is built in three layers:
 
@@ -50,6 +50,7 @@ The pattern also scales: if you ever add a whole new area of work to this worksp
 | `/growth-guide` | Finalize the brand's growth guide - the idea bank + concept pipeline that tracks every ad from idea to learning. |
 | `/video-copy` | Write a first-draft video ad script from your research and chosen claims. |
 | `/watch-video` | Claude actually watches a video (link or file): frames, transcript, pacing, feel. Quick answers, or full teardown docs saved to the brand. |
+| `/research-pulse` | The weekly sweep: new Reddit threads, competitor ads, popping content, fresh reviews and comments. Raw findings filed by source, a dated brief with idea sparks. |
 | `/static-copy` | Write first-draft static ad copy from your research and chosen claims. |
 
 Every draft-writing skill reads the manifesto and the brand's research first, and hands you a draft to take out and assemble yourself. None of them ship a finished ad.
@@ -61,7 +62,12 @@ Every draft-writing skill reads the manifesto and the brand's research first, an
 ```
 brands/<brand>/
 ├── CONTEXT.md        the brand basics (from /new-brand)
-├── research/         market research doc, reviews, mined data
+├── research/
+│   ├── market-research.md · avatars.md · desires.md   the synthesis docs (the canon)
+│   ├── raw/          the append-forever layer: reviews, ad comments (ours vs
+│   │                 competitors - different lenses), reddit, social, surveys
+│   ├── pulses/       the weekly /research-pulse briefs, week by week
+│   └── teardowns/    /watch-video analysis docs
 ├── content/          the brand's existing footage and assets
 ├── ads/              finished ads you have made (for learnings)
 ├── learnings/        the living learnings knowledge base + call transcripts (compounds over time)

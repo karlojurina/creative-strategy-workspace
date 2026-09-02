@@ -51,4 +51,5 @@ Claude then runs scrapes through Apify's actors (pre-built scrapers in their sto
 
 - **Meta Ads Manager** - pull your real ad performance data straight into the workspace.
 - **Ad spy tools** (Atria and others) - deeper competitor ad research.
+- **Automated weekly pulses** - by default, the workspace nudges you to run `/research-pulse` when a brand's last sweep is 7+ days old, and you run it yourself. If you want true automation (the sweep running on a schedule without you), ask Claude about setting up a scheduled run - it is a power-user move, and the nudge covers most people better.
 - Anything else you want. The workspace is yours to upgrade.
