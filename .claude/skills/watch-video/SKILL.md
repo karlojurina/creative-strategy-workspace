@@ -83,7 +83,7 @@ The default prompt covers: energy arc, pacing feel, music, sound design, deliver
 
 Combine all layers into one read. Frames tell you WHAT is shown, the transcript WHAT is said, the pacing numbers HOW it's built, Gemini HOW it feels. Where Gemini's read conflicts with the hard numbers, trust the numbers and say so.
 
-**Teardown doc format** - save to `brands/<slug>/research/teardown_<video-slug>.md` (ask which brand it belongs to if unclear):
+**Teardown doc format** - a teardown is mined material, so it lands in the raw layer like everything else mined: `brands/<slug>/research/raw/social/DD-MM-YYYY_teardown_<video-slug>.md` (ask which brand it belongs to if unclear; if it is a teardown of one of the brand's OWN ads for learnings, save alongside the learning work instead - `brands/<slug>/learnings/`):
 
 - Source, creator, duration, captured DD-MM-YYYY
 - Hook (first 3s: visual + spoken + cut density)
