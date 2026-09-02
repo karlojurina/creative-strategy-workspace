@@ -52,6 +52,10 @@ It is VITAL to uncover the prospect's **real fears**, **desires**, and both **in
     - **What Does the Market Have to Give Up By Solving Their Problem?**
     - **Who Does the Market Blame for Their Problem?**
     - **Top 5 Objections the Market Might Have for Their Problem:**
+12. **Their Feed (the feed-native aesthetic):**
+    - **The search terms they'd type** before ever seeing an ad
+    - **Creator type** · **Production level** · **Setting** · **Delivery** · **Tone & pacing** · **Recurring formats**
+    - **3-5 reference links** to organic content that IS this avatar's feed
 
 ### Context for each point
 
@@ -75,6 +79,16 @@ It is VITAL to uncover the prospect's **real fears**, **desires**, and both **in
 - Failed solutions they have tried in the past should be common and widely known.
 
 **Tone:** Everything should be written in the tone and language our prospects would use themselves. Raw, unfiltered, and conversational, as if we're listening in on their internal monologue.
+
+### Their Feed - how to build section 12
+
+The ad that wins is the one that looks like content this avatar already chooses to watch - it slips past the "this is an ad" filter. Sections 1-11 tell you what to SAY; this section tells production what the ad should LOOK like. Per avatar:
+
+1. **Derive their search terms.** From the avatar's fears, frustrations, and desires (already written above), work out what they'd actually type into TikTok / YouTube / Instagram about this problem - pre-purchase, problem-led searches in THEIR language, not product language ("best foundation for over 60 skin", not the brand name).
+2. **The user watches; you help.** Give the user the search terms and have them scroll the top ORGANIC results (views, likes, comments = the avatar's feed voting) - this is a watching job, and doing it themselves builds the eye (a burner account tuned to the avatar makes it even sharper - see `resources/marketing-fundamentals/research_methods.md`). `/watch-video` teardowns of the strongest finds feed straight in. Usually a clear theme emerges fast: "a woman, in her bathroom, talking straight to camera, no cuts, natural light."
+3. **Write the pattern down as a production directive**: creator type (age, look, peer vs authority), production level (raw handheld vs polished, lighting), setting (bathroom, car, kitchen), delivery (straight-to-camera, voiceover over b-roll, demo, skit), tone & pacing, recurring formats - plus 3-5 reference links. Different avatars in the same brand consume visibly different content; never average them into one brand-level answer.
+
+This section is what briefs pull casting, setting, and format decisions from - and what confirms an ad concept's format is native to the avatar BEFORE scripting.
 
 ## Gold-standard example
 

@@ -20,7 +20,7 @@ Initial research is a snapshot; the market keeps moving. The pulse keeps the wor
      - *competitors'* → what people dislike, and how we position against it
    - **Ad comments** - same two lenses: our ads' comments for reactions, objections, and reusable lines; competitor ads' comments for the pushback and excitement that reveal gaps.
 
-3. **File the raw.** Append findings to the matching `research/raw/<source>/` folder as `DD-MM-YYYY_<topic>.md` files - quotes verbatim, a link on everything. Raw is never rewritten, only added to. Standout verbatims also get promoted to `research/voice_of_customer.md` in their category (and a line already in the bank that shows up again gets its recurrence bumped - (x2), (x3)...); the phrase bank stays alive or it dies.
+3. **File the raw.** Append findings to the matching `research/raw/<source>/` folder as `DD-MM-YYYY_<topic>.md` files - quotes verbatim, a link on everything. Raw is never rewritten, only added to. Standout verbatims also get promoted to `research/voice_of_customer.md` in their category (and a line already in the bank that shows up again gets its recurrence bumped - (x2), (x3)...); the phrase bank stays alive or it dies. And if the popping content shows an avatar's feed visibly shifting (new dominant format, new creator type, new setting), update that avatar's **Their Feed** section in `research/avatars.md` in the same action.
 
 4. **Write the brief** to `research/pulses/pulse_DD-MM-YYYY.md`:
    - **New this week** - what the sweep found, in bullets, with sources.

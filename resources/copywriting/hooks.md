@@ -36,7 +36,7 @@ Practical moves for the variations:
 
 ## The visual half
 
-The hook is not just the words. The first frame must look like something they would watch anyway - an organic piece of content, not an ad. A polished-ad look raises the guard ("they're trying to sell me something"); a post look drops it. Make the first second visually scream who it's for: a specific problem, a specific person, a specific moment they recognize from their own life.
+The hook is not just the words. The first frame must look like something they would watch anyway - an organic piece of content, not an ad. A polished-ad look raises the guard ("they're trying to sell me something"); a post look drops it. Make the first second visually scream who it's for: a specific problem, a specific person, a specific moment they recognize from their own life. What "looks like their content" concretely means lives in the avatar doc's **Their Feed** section - the creator type, setting, and production level that avatar's feed actually serves them.
 
 ## Hook rate: the benchmark and the trap
 

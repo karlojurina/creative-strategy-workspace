@@ -27,7 +27,7 @@ You cannot fake the way a niche talks - you mine it:
 - Pull the exact phrases from Reddit threads, reviews, your own ad comments, and the raw research layer (`research/raw/` - your ad comments are the market giving you feedback in real time).
 - Note the niche terms and jargon, and USE them - insiders hear an insider; outsiders writing in are spotted instantly.
 - When AI drafts for you, make it research the avatar's language first and read the threads yourself - that's where lines like "new mom stress keeps cortisol high" come from.
-- Watch what they watch. Make the ad look like something they would watch anyway - format, music, faces, setting, all avatar-native.
+- Watch what they watch. Make the ad look like something they would watch anyway - format, music, faces, setting, all avatar-native. The avatar doc's **Their Feed** section holds this as a production directive (creator type, production level, setting, delivery, pacing, formats, reference links) - read it before choosing an execution format, and never average two avatars' feeds into one look.
 
 ## Match the awareness level
 
