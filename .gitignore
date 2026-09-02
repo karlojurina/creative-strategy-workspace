@@ -2,3 +2,4 @@
 node_modules/
 brands/*/.growth-guide-ui.json
 resources/breakthrough-advertising/*.pdf
+__pycache__/
