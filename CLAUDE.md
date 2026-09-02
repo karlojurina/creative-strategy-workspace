@@ -34,7 +34,7 @@ The pattern also scales: if you ever add a whole new area of work to this worksp
 | `about-me.md` | Who runs this workspace - created by `/start`, read whenever personalization matters. |
 | [SETUP.md](SETUP.md) | The connectors, APIs, and MCPs to set up, plus optional upgrades. |
 | `brands/` | One folder per brand you work with. `/new-brand` creates them from `_TEMPLATE`. |
-| `growth-guide-app/` | The visual growth guide (kanban, idea wall, results, analytics; its Home tab also renders the brand's docs plus the library - playbooks, fundamentals, copywriting - for reading while you work). Start it with `node growth-guide-app/server.js` - it reads and writes the same markdown files, so the app and the files never disagree. |
+| `growth-guide-app/` | The visual growth guide (kanban, idea wall, results, analytics; its Home tab also renders the brand's docs plus the playbooks and copywriting guides for reading while you work). Start it with `node growth-guide-app/server.js` - it reads and writes the same markdown files, so the app and the files never disagree. |
 | `resources/` | The knowledge base every skill pulls from - marketing fundamentals, Breakthrough Advertising, the copywriting guides, real winning-ad case studies, the learnings + iteration playbooks, plus a few grab-and-use prompts (comment miner, idea generators). |
 | `.claude/skills/` | Your tools. See below. |
 

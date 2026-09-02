@@ -329,7 +329,7 @@ textarea.mi{min-height:72px;resize:vertical;line-height:1.55}
       <div id="docReader" class="docreader" hidden></div>
       <div id="libSection">
         <div class="lbl" style="margin-top:36px">The library</div>
-        <div class="wb-note">The shared knowledge base behind every ad - the playbooks, the fundamentals, the copywriting craft. The same files as <b>resources/</b> in the workspace.</div>
+        <div class="wb-note">The playbooks and the copywriting craft - how every ad closes its loop, and how the lines get written. The same files as <b>resources/</b> in the workspace.</div>
         <div id="libGridWrap"></div>
       </div>
       <div id="libReader" class="docreader" hidden></div>
@@ -582,7 +582,7 @@ async function getLibDoc(gi,di){
 function renderLibrary(){
   const w=document.getElementById('libGridWrap');
   if(!LIB.length){ w.innerHTML='<div class="anote" style="padding:22px;background:var(--surface);border-radius:var(--r);box-shadow:var(--shadow)">No library found - the app looks for the <b>resources/</b> folder in the workspace root.</div>'; closeLib(); return; }
-  w.innerHTML=LIB.map((g,gi)=>`<div class="lbl" style="margin-top:${gi?26:0}px;font-size:12px;color:var(--text-3)">${g.group}</div><div class="docgrid">`+
+  w.innerHTML=LIB.map((g,gi)=>`${LIB.length>1?`<div class="lbl" style="margin-top:${gi?26:0}px;font-size:12px;color:var(--text-3)">${g.group}</div>`:''}<div class="docgrid">`+
     g.docs.map((d,di)=>`<button class="doccard" onclick="openLibDoc(${gi},${di})">
       <span class="dice">${g.e}</span>
       <span style="min-width:0"><span class="dcn">${d.title}</span><div class="dcp">resources/${d.id}</div></span>
