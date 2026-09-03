@@ -9,15 +9,24 @@ Write the first-draft script for a video concept. The draft is a starting point 
 
 ## Workflow
 
-1. Read `MANIFESTO.md`. Ask which brand and which concept card if it is not obvious. Then load the full picture: the brand's `CONTEXT.md`, `research/market-research.md`, `research/avatars.md`, `research/desires.md`, `research/voice_of_customer.md` (the phrase bank - the customer's exact language for pains, outcomes, objections, jargon), `learnings/learnings.md`, the concept's card in `growth-guide.md`, `resources/breakthrough-advertising/`, and `resources/copywriting/spoken_voice.md`. Past learnings shape this script - that is the compounding. Skipping this loading step is how generic AI copy happens; it is non-negotiable.
+1. Read `MANIFESTO.md`. Ask which brand and which concept card if it is not obvious. Then load the full picture: the brand's `CONTEXT.md`, `research/market-research.md`, `research/avatars.md`, `research/desires.md`, `research/voice_of_customer.md` (the phrase bank - the customer's exact language for pains, outcomes, objections, jargon), `learnings/learnings.md`, the concept's card in `growth-guide.md`, `resources/breakthrough-advertising/`, `resources/copywriting/spoken_voice.md`, and `resources/copywriting/text_on_screen.md`. Read the chosen avatar's **Their Feed** section closely - it says what this ad has to look and sound like. Past learnings shape this script - that is the compounding. Skipping this loading step is how generic AI copy happens; it is non-negotiable.
    Two laws from those last two docs govern every line: VoC snippets are TYPED language - in a spoken script you voice them, you don't paste them (keep their exact vocabulary, re-cadence for the mouth); and the finished draft must pass the read-aloud test (breath, stumble, cringe) plus the written-tells table before it reaches the user.
 2. **The interview - one question at a time, and WAIT for each answer. Do not invent them.** Pull what you can from the card's memo (WHAT / WHY / HOW), then ask whatever is still open:
    - **"What's the core idea behind this video ad concept?"** - the pain point or desire to address, the feature or benefit to highlight, the emotional response to evoke, any visual elements they're considering, and the action they want viewers to take.
    - **"Should this be a 'General' or 'Organic' ad script?"** (the two types are defined below)
-   - **"Will this script be delivered through 'Voiceover' or 'Text on Screen'?"** (the trade-offs are defined below)
-3. Write the script using the full method below: SIX hooks, ONE hold, then the strategic breakdown.
-4. Save the draft to `brands/<slug>/scripts/<card-id>-<concept-slug>.md` and note the file path on the concept card (next to **Brief:** until the real brief exists).
-5. End with the manifesto reminder: this is a draft, not the ad. Take it into Milanote, assemble the real thing with your own hands and fresh eyes, and drop the final brief link into the card.
+   - **"Will this script be delivered through 'Voiceover' or 'Text on Screen'?"** (the trade-offs are defined below - and text on screen is read in the viewer's own inner voice, so it is written differently: short bursts, not spoken cadence)
+3. **Language, not information - the pass that decides whether the script sounds human.** The research files are information; the ad has to be language. Before drafting:
+   - Pull the 10-20 lines from `research/voice_of_customer.md` closest to this concept (the pains, outcomes, objections, and jargon this ad will touch), and re-read the chosen avatar's **Their Feed** section.
+   - **For an Organic script, learn the register from the source.** Ask the user for 2-3 reference videos of the creators, or the kind of content, this should sound like (or take the links from the avatar's Their Feed section). Pull their transcripts (yt-dlp captions, or `/watch-video`) and read them for the pattern: how they open, sentence length and rhythm, the phrases they repeat, how they move between thoughts, how they close. Write that down as a short **voice notes** block - 5-8 lines - and show it to the user before drafting. If the user has no references and Their Feed is empty, say so plainly and search for the avatar's top organic creators yourself; never skip to drafting with nothing.
+   - Draft INSIDE that pattern: the customer's words voiced, not pasted (`spoken_voice.md`), the creator's cadence, the avatar's register. This step is what the manifesto means by preparation, and it is where the difference between an AI-sounding script and a human one gets made.
+4. Write the script using the full method below: SIX hooks, ONE complete hold, then the strategic breakdown. Then run the read-aloud test and the written-tells table on the hold and fix what fails - every time, before the user sees a word.
+5. Save the draft to `brands/<slug>/scripts/<card-id>-<concept-slug>.md` and note the file path on the concept card (next to **Brief:** until the real brief exists). Then deliver it in the chat in this exact shape:
+   - **First line:** where it is saved, as a clickable link to the file - students need to get used to opening .md files, so name the path and link it.
+   - **Then the full script:** the six hooks, then the ENTIRE hold. Never a shortened version, a "cut", or a summary in place of the script - what is in the chat is what is in the file.
+   - **Then a three-line voice check** proving the gate ran: read-aloud (how many lines got rewritten), tells table (what was caught), VoC (how many customer lines were voiced in).
+   - One line: the strategic breakdown lives in the file, under the script.
+6. **Offer a split test - once, and only as an offer.** Ask: want the same brief drafted by a different model to compare against? If yes, run it as a subagent on another model (Opus or Sonnet), save it beside the first as `<card-id>-<concept-slug>-alt.md`, and put the two holds side by side in the chat. Say up front that it costs extra tokens. Never run it unasked.
+7. End with the manifesto reminder: this is a draft, not the ad. Take it into Milanote, assemble the real thing with your own hands and fresh eyes, and drop the final brief link into the card.
 
 ## The method
 
@@ -205,11 +214,11 @@ Voiceover excels when you need to tell complex stories that require narrative fl
 
 The conversational, intimate tone possible with voiceover makes it ideal for building trust and explaining complex mechanisms or transformations. When paired with music and sound design, it creates an immersive emotional experience.
 
-**Text on Screen:** Words appear on screen with no spoken narration.
+**Text on Screen:** Words appear on screen with no spoken narration - and the viewer reads them in their own inner voice.
 
-Text-on-screen creates an immediate, platform-native feel that especially resonates on TikTok and Reels. It's perfect for quick-hitting emotional points where visuals carry most of the storytelling weight. Since most social media scrolling happens with sound off, text-on-screen ensures your message gets through regardless. Viewers can read faster than they can listen, and you can create visual rhythm through text timing and emphasis using CAPS, bold, or emojis.
+That is the whole reason it works. With a voiceover they hear someone else selling to them and the guard goes up; with text on screen they are literally telling themselves about the product (self-referential processing - words that run through your own mental voice get trusted more). It has printed across supplements, fitness, and pet brands; a recent winner ran almost two minutes with 20%+ hold. It also filters out non-buyers naturally: whoever won't read two minutes wasn't going to buy, and whoever stays is participating, not just watching.
 
-This format feels more organic and less "ad-like," making it ideal for younger demographics who are used to scanning content quickly. It's also faster and more budget-friendly to produce and test variations. The trade-off is that you must be ultra-concise, limiting text to 5-7 words per block.
+So it is WRITTEN differently - for the inner voice, not for speaking. Short bursts, one thought per block, natural thought patterns. Not "Have you ever wondered why some people have endless energy all day?" but: "Some people have energy all day. / You crash at 3pm. Why?" The customer's verbatim lines ship as-is here (typed language on a typed surface). Pacing is 3-5 seconds per block, the music carries the emotion, the footage only has to stay relevant. The full guide, including the editing rules, is `resources/copywriting/text_on_screen.md` - read it before writing in this format.
 
 ### The deliverable: SIX compatible hooks first, then ONE universal hold script
 
@@ -224,6 +233,7 @@ First, create SIX distinctive hooks that:
 Then create a SINGLE comprehensive main body script (HOLD) that:
 
 - Contains ONLY voiceover text OR text-on-screen copy (based on format chosen)
+- Is delivered COMPLETE - the full hold, every line. Never a shortened version, a "cut", or a summary in place of the script
 - Can be naturally paired with all six hooks provided above
 - Takes prospects through the emotional continuum
 - Uses gradualization to build belief step-by-step

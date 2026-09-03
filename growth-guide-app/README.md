@@ -16,7 +16,7 @@ It opens at http://localhost:4400 (and opens your browser on Mac). Stop it with 
 
 | In the app | On disk |
 |------------|---------|
-| Home tab documents | `research/market-research.md`, `research/avatars.md`, `research/desires.md`, `learnings/learnings.md` (read-only render) |
+| Home tab documents | `research/market-research-summary.md` + `research/market-research.md` (one card, two tabs: Summary / Full research), `research/avatars.md`, `research/desires.md`, `learnings/learnings.md` (read-only render) |
 | Home tab, "The library" section | the two playbooks + the copywriting guides from `resources/` (read-only render; new .md files in those folders appear automatically) |
 | Idea Bank, Board, Results, card edits | `brands/<brand>/growth-guide.md` (read AND write) |
 | Sticky-note positions | `brands/<brand>/.growth-guide-ui.json` (app layout only - never edit by hand, safe to delete) |

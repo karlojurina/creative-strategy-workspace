@@ -10,6 +10,8 @@
 
 Do not overthink it. These are just ways to give your workspace more senses and more reach.
 
+One more thing to expect: now and then Claude needs a small helper tool to do a job (a Python package to read a spreadsheet export, a scraper's browser). It will always say what it is installing and why before it does, and it never installs anything silently.
+
 ## Core (set these up to run the fundamentals)
 
 - **Web research - nothing to set up.** Claude Code searches the web and reads pages out of the box. That covers most of what market research needs: review pages, forums, articles, competitor sites.
@@ -28,12 +30,19 @@ The best voice-of-customer lives behind walls the built-in web tools can't pass 
 
 An open-source stealth scraper. Gets through Reddit's and most review sites' anti-bot walls.
 
+**Already installed?** Check first - `python3 -c "import scrapling"` (or `which scrapling`). If that works, skip to the test.
+
+**On a Mac**, plain `pip install` fails with an "externally-managed-environment" error: Mac's Python refuses to install tools globally. The fix is a private folder just for this workspace's tools:
+
 ```
-pip install "scrapling[fetchers]"
-scrapling install
+python3 -m venv ~/.cs-tools
+~/.cs-tools/bin/pip install "scrapling[fetchers]"
+~/.cs-tools/bin/scrapling install
 ```
 
-The second command downloads its stealth browser (a few hundred MB, one time). After that, Claude drives it directly whenever research hits a wall. One thing to know: plain HTTP mode gets blocked by Reddit - the stealth mode (`StealthyFetcher`) is the one that works, and it needs that browser download.
+**On Windows**, plain `pip install "scrapling[fetchers]"` then `scrapling install` works.
+
+The last command downloads its stealth browser (a few hundred MB, one time). After that, Claude drives it directly whenever research hits a wall - on a Mac it runs it through `~/.cs-tools/bin/python`. One thing to know: plain HTTP mode gets blocked by Reddit - the stealth mode (`StealthyFetcher`) is the one that works, and it needs that browser download.
 
 ### Apify (social media comments - free tier to start)
 

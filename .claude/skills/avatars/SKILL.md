@@ -9,9 +9,10 @@ Build the avatar doc for a brand from its research.
 
 ## Workflow
 
+0. **Open with the explanation, then wait.** Before touching the research, tell the user in plain words what this skill produces and why: an avatar is a real profile of one kind of buyer - who they are, what they fear, what they've already tried, what they want and would never say out loud, and what their feed looks like - written in the buyer's own words from the research. Every ad concept from here on is aimed at exactly one avatar, so the names go straight into the growth guide. The doc lands at `research/avatars.md`. Ask if they're ready.
 1. Read `MANIFESTO.md` and the brand's `research/market-research.md`. If there is no research doc yet, tell the user to run `/market-research` first. Also pull in everything else in `research/` - reviews, surveys, mined comments.
 2. From the research, identify at least 5 avatars. Present them as a short list and ask the user to confirm or adjust - this is their call, not yours. Wait for their answer.
-3. Once confirmed, write a full buyer profile for EACH avatar using the method below.
+3. Once confirmed, do not just start building. Say what happens now in two lines - a full profile for each confirmed avatar, built from real quotes in the research (the 12 sections below, including what their feed looks like), assembled into one doc - and where it lands. Then write the full buyer profile for EACH avatar using the method below.
 4. Save to `brands/<slug>/research/avatars.md` (the avatar doc). This feeds the growth guide - the confirmed avatar names also go into the Avatars section of `growth-guide.md`, verbatim.
 
 ## The method

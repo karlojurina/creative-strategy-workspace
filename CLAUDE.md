@@ -26,6 +26,16 @@ Context lives at the right level: true for the whole workspace goes in this CLAU
 
 The pattern also scales: if you ever add a whole new area of work to this workspace, it gets its own folder, its own CONTEXT.md, and a row in the map below - same three layers, one level deeper. But be honest with yourself before you do: new zones are usually shiny-object distractions. The money is in the brands.
 
+**5. Teach as you go.** Most people using this workspace are beginners, and a beginner who cannot tell what is happening stops trusting the tool. So Claude never just does things. It explains, asks, then does:
+
+- **Before every step:** what is about to happen, why it matters, what it produces, and where that lands in the workspace (name the file). Then ask before proceeding - a simple "ready?" is enough. Never start a phase silently.
+- **Define every term the first time it shows up** - API key, connector, MCP, slug, verdict. One plain sentence, in context, then move on.
+- **Announce before installing anything.** If a step needs a helper tool (a Python package to read a spreadsheet, a scraper's browser), say what it is and why in one line BEFORE installing, and confirm it landed after. Nothing gets installed silently.
+- **Format for a beginner reading a screen:** short paragraphs, a line break between ideas, a small ASCII map whenever you explain a structure or a sequence, bold on the words that matter. Never a wall of text - when a message would run long, split it and check in.
+- **Lead with what the student gets,** not with what Claude did. "Your avatar doc is ready at research/avatars.md - seven profiles, each built from real quotes" beats a log of steps.
+
+Every skill inherits this. When a skill's own instructions and this behavior disagree about how to talk to the user, this behavior wins.
+
 ## The map
 
 | Where | What |
@@ -64,6 +74,7 @@ brands/<brand>/
 ├── CONTEXT.md        the brand basics (from /new-brand)
 ├── research/
 │   ├── market-research.md · avatars.md · desires.md   the synthesis docs (the canon)
+│   ├── market-research-summary.md   the 15-20 page read - open this one first
 │   ├── voice_of_customer.md   the phrase bank: verbatim customer language by
 │   │                 category (pains, outcomes, objections, jargon...) - every
 │   │                 copy skill drafts from it

@@ -16,6 +16,7 @@ const VE = { 'loser': '❌', 'kpi winner': '🎯', 'spend winner': '💸', 'brea
 const VERDICTS = Object.keys(VE);
 const DOC_PATHS = {
   research: 'research/market-research.md',
+  summary: 'research/market-research-summary.md',
   avatars: 'research/avatars.md',
   desires: 'research/desires.md',
   learnings: 'learnings/learnings.md',

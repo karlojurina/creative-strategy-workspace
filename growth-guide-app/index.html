@@ -184,7 +184,10 @@ select.pick{background-color:rgba(120,120,128,.14);border:0;border-radius:9px;he
 .dcp{font-size:11.5px;color:var(--text-3);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin-top:2px}
 .dcm{font-size:11.5px;color:var(--text-2);margin-top:4px}
 .doccard .arrow{margin-left:auto;color:var(--text-3);font-size:18px}
-.docreader{max-width:800px}
+.docreader{max-width:1120px}
+.doctabs{display:inline-flex;gap:3px;background:var(--surface-2);border-radius:9px;padding:3px;margin:0 0 18px}
+.doctabs button{padding:5px 13px;border-radius:7px;font-size:12.5px;font-weight:560;color:var(--text-2);transition:all .18s var(--k)}
+.doctabs button.on{background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
 .docback{font-size:13px;color:var(--text-2);font-weight:560;margin-bottom:12px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:color .18s var(--k)}
 .docback:hover{color:var(--text)}
 .dochead{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--hair)}
@@ -546,15 +549,23 @@ function renderDocs(){
   }).join('');
   closeDoc();
 }
-function openDoc(k){
-  const [,e,n,p]=DOCS.find(x=>x[0]===k), d=cur.docs[k];
+function openDoc(k,view){
+  const [,e,n,p]=DOCS.find(x=>x[0]===k);
+  let d=cur.docs[k], path=p, tabs='';
+  if(k==='research'){
+    view=view||'summary';
+    const sd=cur.docs.summary||{updated:d.updated,md:'# Not created yet\n\nThe summary is written by **/market-research** at the end of a research run - the 15-20 page read of the full document.'};
+    tabs=`<div class="doctabs"><button class="${view==='summary'?'on':''}" onclick="openDoc('research','summary')">Summary</button><button class="${view==='full'?'on':''}" onclick="openDoc('research','full')">Full research</button></div>`;
+    if(view==='summary'){ d=sd; path='research/market-research-summary.md'; }
+  }
   document.getElementById('docGridWrap').hidden=true;
   document.getElementById('libSection').hidden=true;
   document.getElementById('libReader').hidden=true;
   const r=document.getElementById('docReader'); r.hidden=false;
   r.innerHTML=`<button class="docback" onclick="closeDoc()">‹ All documents</button>
     <div class="prose">
-      <div class="dochead"><span class="dice">${e}</span><div><div class="dcn" style="font-size:19px">${n}</div><div class="dcp">${p} · updated ${fmt(d.updated)}</div></div></div>
+      <div class="dochead"><span class="dice">${e}</span><div><div class="dcn" style="font-size:19px">${n}</div><div class="dcp">${path} · updated ${fmt(d.updated)}</div></div></div>
+      ${tabs}
       ${md(d.md)}
     </div>`;
   window.scrollTo(0,0);

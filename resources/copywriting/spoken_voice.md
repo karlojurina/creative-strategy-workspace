@@ -79,4 +79,5 @@ And note what NEVER appears: the words absent from every winner are as much the 
 
 - `/video-copy` drafts get the read-aloud test + the tells table before they reach the brief.
 - Statics keep written cadence - this doc governs the SPOKEN register only; the shared tells (triplets, adjective stacks, pristine CTAs) still apply everywhere.
+- Text on screen is a third register - the viewer's inner voice, not the mouth: short bursts, one thought per block. Its own guide: [text_on_screen.md](text_on_screen.md).
 - Structure and persuasion live in [script_principles.md](script_principles.md); this doc governs how the lines SOUND. A script needs both.

@@ -14,7 +14,8 @@ Generate the market research document for a brand. This is the foundation of eve
    As you mine, file the raw material into `research/raw/` by source (see `research/raw/README.md` for the folders and the reading lenses - our reviews and comments get read for emotional headline material, competitors' get read for dislikes and positioning gaps). The document below is the synthesis; raw/ is where the evidence lives and where `/research-pulse` keeps adding to it every week.
    And promote the best of the language as you go: the strongest verbatim lines land in `research/voice_of_customer.md`, sorted into its categories (pain phrases, outcome phrases, dream-state lines, objections, metaphors, trigger moments, surprise & delight, niche jargon, anti-language) - exact words, source and date on every snippet, recurrence marked with (x2)/(x3). That file is the phrase bank every copy skill drafts from; a research run that leaves it empty is not done.
 3. Write the document straight to `brands/<slug>/research/market-research.md`. Build it section by section in the file - there are no chat length limits here, so never trim for space. Depth is the requirement.
-4. Tell the user it is ready to review, and remind them of the manifesto: actually study it. The understanding has to live in their head, not the model's. Research is where the real work is.
+4. **Then write the summary.** The full document is the reference layer; nobody reads 300 pages in one sitting. Write `brands/<slug>/research/market-research-summary.md`: the same 14-section skeleton (executive summary, the nine steps, the master lists, the question batteries, the ad concepts, the final analysis), 15-20 pages at most, the strongest findings and quotes from each section, every link kept. It is the doc the user reads first, the doc the app's Home tab opens first, and the doc they feed to NotebookLM. Depth lives in the full document; the summary earns the read.
+5. Finish by telling the user what they got and where, in plain words: the summary (read this first), the full document (the reference), the phrase bank, and the raw folder - and which platforms went unmined, if any. Then remind them of the manifesto: actually study it. The understanding has to live in their head, not the model's. Research is where the real work is.
 
 ## The method
 
@@ -197,6 +198,13 @@ For all Reddit content, include direct links to the specific threads where you f
 This section should provide a rich understanding of authentic user language and concerns, organized by key themes and subreddits.
 
 ### STEP 7: SOCIAL MEDIA RESEARCH
+
+**Cover every platform explicitly - never let one stand in for the others.** For each, say in the document what was mined and with which tool, or that it went unmined and why:
+- **Instagram** - the brand's own profile and its top competitors': recent posts and Reels, and the comments under them (Apify: instagram-scraper for the posts, instagram-comment-scraper for the comments). Hashtag and keyword searches for the niche. This is where the avatar's feed lives - note creator types, settings, and formats while here.
+- **Facebook** - niche Facebook groups (search the group names, read the discussions and the questions people ask), the brand's page comments, and the Meta Ad Library for the brand's and competitors' running ads (the ads running longest are the ones working). Reachable with plain page fetches and Scrapling.
+- **TikTok** - niche keyword searches, the top organic videos, and the comments under them (Apify's TikTok actors for comments at volume).
+- **YouTube** - the top long-form videos in the niche and their comments (captions via yt-dlp, comments via fetch or Apify).
+- **X** - niche conversations and complaints (Apify).
 
 Examine trending content across platforms like TikTok, Instagram, and Facebook Ads to identify:
 
