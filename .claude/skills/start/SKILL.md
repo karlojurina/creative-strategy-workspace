@@ -105,6 +105,8 @@ Then work through the tools interactively - never dump all the instructions at o
 
 **The video tools (yt-dlp + ffmpeg + Gemini) - powers `/watch-video`:** explain what it unlocks in the plainest terms: this is how Claude gets eyes. yt-dlp downloads the video, ffmpeg cuts it into frames, and the Gemini key lets a model that can see and hear watch the whole thing - so Claude can tear down a competitor's winning ad or study their own ads for learnings. Check what is already installed, then install what is missing (`brew install yt-dlp ffmpeg` on Mac, winget equivalents on Windows - announce first), have them grab a free Gemini API key at aistudio.google.com/apikey, store it as `GEMINI_API_KEY` in their shell environment. Verify: `yt-dlp --version` and `ffmpeg -version` both answer, and a tiny Gemini API call returns OK. If they skip the key, `/watch-video` still works minus the feel layer - say so and move on.
 
+**Firecrawl (free, no account - offer it, one line):** if a page ever refuses to load during research, this is the backup reader, and it installs with one command (`claude mcp add --transport http firecrawl https://mcp.firecrawl.dev/v2/mcp`) with no key at all. Offer it, install it if they say yes, and verify with a single scrape. Be honest about the boundary: it does not do Reddit or social comments - Scrapling and Apify still own those.
+
 **Optional upgrades (Meta Ads Manager, ad spy tools):** name them in one line each, say they can come later, do not set them up now.
 
 Close the phase with a two-line recap of what the workspace can now do that it couldn't an hour ago.

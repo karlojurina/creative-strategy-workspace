@@ -56,6 +56,20 @@ Claude then runs scrapes through Apify's actors (pre-built scrapers in their sto
 
 **If a run fails**, the error tells you which billing gate you hit: `not-enough-usage-to-run-paid-actor` means your credit is used up; `Monthly usage hard limit exceeded` means your self-set spending cap (Console → Billing → Limits) needs raising.
 
+### Firecrawl (free, no account - when a page won't load)
+
+Sometimes Claude's built-in page reader comes back with nothing: the site is heavy on JavaScript, or it blocks plain requests. Firecrawl is a hosted reader that gets through most of those and hands back clean text. It also has its own web search, which is useful when you want results with descriptions you can scan quickly.
+
+**Setup is one line, and it needs no account or key** (there is a free keyless mode with daily limits):
+
+```
+claude mcp add --transport http firecrawl https://mcp.firecrawl.dev/v2/mcp
+```
+
+That gives Claude three tools: `firecrawl_scrape` (read one page), `firecrawl_search` (search the web), and `firecrawl_parse` (read a local file, like a PDF). If you ever hit the daily limit, create a free account at [firecrawl.dev](https://firecrawl.dev) (1,000 pages a month, no card) and add your key as `FIRECRAWL_API_KEY`.
+
+**Know what it does NOT do:** Firecrawl refuses Reddit outright ("we do not support this site"), and it does not reach logged-in social comments. So it does not replace anything - **Scrapling stays your Reddit and anti-bot tool, Apify stays your social-comments tool.** Firecrawl is the third option for ordinary pages that simply will not load: review sites, competitor pages, articles, PDFs.
+
 ## Optional upgrades (add when you are ready)
 
 - **Meta Ads Manager** - pull your real ad performance data straight into the workspace.
